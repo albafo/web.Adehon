@@ -1,0 +1,334 @@
+<?xml version="1.0"?>
+
+<!--
+-
+- Sequel Pro XML dump
+- Versión 4096
+-
+- http://www.sequelpro.com/
+- http://code.google.com/p/sequel-pro/
+-
+- Host: 127.0.0.1 (MySQL 5.6.16)
+- Base de datos: adehon
+- Tiempo de Generación Time: 2014-06-14 23:35:25 +0000
+-
+-->
+
+<adehon>
+
+	<provincias>
+	<row>
+		<id>1</id>
+		<CPRO>1</CPRO>
+		<NOMBRE>Álava (Vitoria)</NOMBRE>
+	</row>
+
+	<row>
+		<id>2</id>
+		<CPRO>2</CPRO>
+		<NOMBRE>Albacete</NOMBRE>
+	</row>
+
+	<row>
+		<id>3</id>
+		<CPRO>3</CPRO>
+		<NOMBRE>Alicante</NOMBRE>
+	</row>
+
+	<row>
+		<id>4</id>
+		<CPRO>4</CPRO>
+		<NOMBRE>Almería</NOMBRE>
+	</row>
+
+	<row>
+		<id>5</id>
+		<CPRO>5</CPRO>
+		<NOMBRE>Ávila</NOMBRE>
+	</row>
+
+	<row>
+		<id>6</id>
+		<CPRO>6</CPRO>
+		<NOMBRE>Badajoz</NOMBRE>
+	</row>
+
+	<row>
+		<id>7</id>
+		<CPRO>7</CPRO>
+		<NOMBRE>Baleares (Palma de Mallorca)</NOMBRE>
+	</row>
+
+	<row>
+		<id>8</id>
+		<CPRO>8</CPRO>
+		<NOMBRE>Barcelona</NOMBRE>
+	</row>
+
+	<row>
+		<id>9</id>
+		<CPRO>9</CPRO>
+		<NOMBRE>Burgos</NOMBRE>
+	</row>
+
+	<row>
+		<id>10</id>
+		<CPRO>10</CPRO>
+		<NOMBRE>Cáceres</NOMBRE>
+	</row>
+
+	<row>
+		<id>11</id>
+		<CPRO>11</CPRO>
+		<NOMBRE>Cádiz</NOMBRE>
+	</row>
+
+	<row>
+		<id>12</id>
+		<CPRO>12</CPRO>
+		<NOMBRE>Castellón</NOMBRE>
+	</row>
+
+	<row>
+		<id>13</id>
+		<CPRO>13</CPRO>
+		<NOMBRE>Ciudad Real</NOMBRE>
+	</row>
+
+	<row>
+		<id>14</id>
+		<CPRO>14</CPRO>
+		<NOMBRE>Córdoba</NOMBRE>
+	</row>
+
+	<row>
+		<id>15</id>
+		<CPRO>15</CPRO>
+		<NOMBRE>Coruña</NOMBRE>
+	</row>
+
+	<row>
+		<id>16</id>
+		<CPRO>16</CPRO>
+		<NOMBRE>Cuenca</NOMBRE>
+	</row>
+
+	<row>
+		<id>17</id>
+		<CPRO>17</CPRO>
+		<NOMBRE>Gerona</NOMBRE>
+	</row>
+
+	<row>
+		<id>18</id>
+		<CPRO>18</CPRO>
+		<NOMBRE>Granada</NOMBRE>
+	</row>
+
+	<row>
+		<id>19</id>
+		<CPRO>19</CPRO>
+		<NOMBRE>Guadalajara</NOMBRE>
+	</row>
+
+	<row>
+		<id>20</id>
+		<CPRO>20</CPRO>
+		<NOMBRE>Guipúzcoa (San Sebastián)</NOMBRE>
+	</row>
+
+	<row>
+		<id>21</id>
+		<CPRO>21</CPRO>
+		<NOMBRE>Huelva</NOMBRE>
+	</row>
+
+	<row>
+		<id>22</id>
+		<CPRO>22</CPRO>
+		<NOMBRE>Huesca</NOMBRE>
+	</row>
+
+	<row>
+		<id>23</id>
+		<CPRO>23</CPRO>
+		<NOMBRE>Jaén</NOMBRE>
+	</row>
+
+	<row>
+		<id>24</id>
+		<CPRO>24</CPRO>
+		<NOMBRE>León</NOMBRE>
+	</row>
+
+	<row>
+		<id>25</id>
+		<CPRO>25</CPRO>
+		<NOMBRE>Lérida</NOMBRE>
+	</row>
+
+	<row>
+		<id>26</id>
+		<CPRO>26</CPRO>
+		<NOMBRE>La Rioja (Logroño)</NOMBRE>
+	</row>
+
+	<row>
+		<id>27</id>
+		<CPRO>27</CPRO>
+		<NOMBRE>Lugo</NOMBRE>
+	</row>
+
+	<row>
+		<id>28</id>
+		<CPRO>28</CPRO>
+		<NOMBRE>Madrid</NOMBRE>
+	</row>
+
+	<row>
+		<id>29</id>
+		<CPRO>29</CPRO>
+		<NOMBRE>Málaga</NOMBRE>
+	</row>
+
+	<row>
+		<id>30</id>
+		<CPRO>30</CPRO>
+		<NOMBRE>Murcia</NOMBRE>
+	</row>
+
+	<row>
+		<id>31</id>
+		<CPRO>31</CPRO>
+		<NOMBRE>Navarra (Pamplona)</NOMBRE>
+	</row>
+
+	<row>
+		<id>32</id>
+		<CPRO>32</CPRO>
+		<NOMBRE>Orense</NOMBRE>
+	</row>
+
+	<row>
+		<id>33</id>
+		<CPRO>33</CPRO>
+		<NOMBRE>Asturias (Oviedo)</NOMBRE>
+	</row>
+
+	<row>
+		<id>34</id>
+		<CPRO>34</CPRO>
+		<NOMBRE>Palencia</NOMBRE>
+	</row>
+
+	<row>
+		<id>35</id>
+		<CPRO>35</CPRO>
+		<NOMBRE>Las Palmas</NOMBRE>
+	</row>
+
+	<row>
+		<id>36</id>
+		<CPRO>36</CPRO>
+		<NOMBRE>Pontevedra</NOMBRE>
+	</row>
+
+	<row>
+		<id>37</id>
+		<CPRO>37</CPRO>
+		<NOMBRE>Salamanca</NOMBRE>
+	</row>
+
+	<row>
+		<id>38</id>
+		<CPRO>38</CPRO>
+		<NOMBRE>Santa Cruz de Tenerife</NOMBRE>
+	</row>
+
+	<row>
+		<id>39</id>
+		<CPRO>39</CPRO>
+		<NOMBRE>Cantabria (Santander)</NOMBRE>
+	</row>
+
+	<row>
+		<id>40</id>
+		<CPRO>40</CPRO>
+		<NOMBRE>Segovia</NOMBRE>
+	</row>
+
+	<row>
+		<id>41</id>
+		<CPRO>41</CPRO>
+		<NOMBRE>Sevilla</NOMBRE>
+	</row>
+
+	<row>
+		<id>42</id>
+		<CPRO>42</CPRO>
+		<NOMBRE>Soria</NOMBRE>
+	</row>
+
+	<row>
+		<id>43</id>
+		<CPRO>43</CPRO>
+		<NOMBRE>Tarragona</NOMBRE>
+	</row>
+
+	<row>
+		<id>44</id>
+		<CPRO>44</CPRO>
+		<NOMBRE>Teruel</NOMBRE>
+	</row>
+
+	<row>
+		<id>45</id>
+		<CPRO>45</CPRO>
+		<NOMBRE>Toledo</NOMBRE>
+	</row>
+
+	<row>
+		<id>46</id>
+		<CPRO>46</CPRO>
+		<NOMBRE>Valencia</NOMBRE>
+	</row>
+
+	<row>
+		<id>47</id>
+		<CPRO>47</CPRO>
+		<NOMBRE>Valladolid</NOMBRE>
+	</row>
+
+	<row>
+		<id>48</id>
+		<CPRO>48</CPRO>
+		<NOMBRE>Vizcaya (Bilbao)</NOMBRE>
+	</row>
+
+	<row>
+		<id>49</id>
+		<CPRO>49</CPRO>
+		<NOMBRE>Zamora</NOMBRE>
+	</row>
+
+	<row>
+		<id>50</id>
+		<CPRO>50</CPRO>
+		<NOMBRE>Zaragoza</NOMBRE>
+	</row>
+
+	<row>
+		<id>51</id>
+		<CPRO>51</CPRO>
+		<NOMBRE>Ceuta</NOMBRE>
+	</row>
+
+	<row>
+		<id>52</id>
+		<CPRO>52</CPRO>
+		<NOMBRE>Melilla</NOMBRE>
+	</row>
+
+	</provincias>
+
+</adehon>

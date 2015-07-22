@@ -1,0 +1,70 @@
+@CHARSET "UTF-8";
+
+.formulario .valid {
+	background-color:green !important;
+	color:white !important;
+}
+
+.formulario label.error {
+	padding-left:5px;
+	color:red;
+}
+.formulario input.error {
+	background-color:red;
+	color:white;
+}
+
+.formulario .formSubarea {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left:5px;
+    padding-right:5px;
+    border-top:1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    background-color: #eee;
+}
+
+#formRegistro .inputClick {
+	background-color:white;
+	cursor:pointer;
+	
+}
+
+.listSelect input {
+	background-color:white !important;
+	cursor:pointer !important;
+}
+
+.newListSelected {
+	padding-top:3px;
+}
+.listSelect .newList {
+	border:1px solid #ccc;
+	overflow:scroll;
+	background-color: #fff;
+	border-radius:4px;
+}
+
+.listSelect .active {
+    background-color: #0000ff;
+   
+}
+
+.listSelect .active a{
+    color: #fff;
+}
+
+.panel-default {
+    margin-top: 25px;
+}
+
+.panel-default form {
+    padding:10px 15px;
+}
+
+.table-hover td{
+    cursor:pointer;
+}
+

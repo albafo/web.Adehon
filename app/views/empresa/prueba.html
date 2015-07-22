@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Nueva oferta de empleo - Adehón </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link media="all" type="text/css" rel="stylesheet" href="http://localhost/proyectosEclipse/adehon/public/css/style.css">
+    <!-- Bootstrap -->
+    <link media="screen" type="text/css" rel="stylesheet" href="http://localhost/proyectosEclipse/adehon/public/css/bootstrap.min.css">
+      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="http://localhost/proyectosEclipse/adehon/public/js/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="http://localhost/proyectosEclipse/adehon/public/js/bootstrap.min.js"></script>
+    
+
+    
+  </head>
+  <body>
+    <div id="wrap">
+      <div class="container">
+            
+                
+<div class="panelEmpresa">
+    <div class="btn-group">
+      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+        Ofertas <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" role="menu">
+        <li><a href="http://localhost/proyectosEclipse/adehon/public/empresa/nueva-oferta">Alta oferta</a></li>
+        <li><a href="#">Another action</a></li>
+        <li><a href="#">Something else here</a></li>
+        <li class="divider"></li>
+        <li><a href="#">Separated link</a></li>
+      </ul>
+    </div>
+    <div class="contenidoPanel">
+    <script src="http://localhost/proyectosEclipse/adehon/public/js/jquery.validate.min.js"></script>
+<script src="http://localhost/proyectosEclipse/adehon/public/js/additional-methods.min.js"></script>
+<script src="http://localhost/proyectosEclipse/adehon/public/js/moment.js"></script>
+<script src="http://localhost/proyectosEclipse/adehon/public/js/bootstrap-datetimepicker.js"></script>
+<script src="http://localhost/proyectosEclipse/adehon/public/js/locales/bootstrap-datetimepicker.es.js"></script>
+
+<link media="all" type="text/css" rel="stylesheet" href="http://localhost/proyectosEclipse/adehon/public/css/bootstrap-datetimepicker.css">
+        <fieldset><legend>Nueva oferta de empleo</legend></fieldset>
+
+     <form method="POST" action="http://localhost/proyectosEclipse/adehon/public/empresa/nueva-oferta" accept-charset="UTF-8" id="formRegistro" class="formulario"><input name="_token" type="hidden" value="gxLGchFgs7bX47gFjPv3SZfqcle7LpLPCDH4jAlj">     <div class="form-group" id="fechaAltaOferta" data-date-format="DD/MM/YYYY"> 
+            <label for="fecha_alta">Fecha de alta</label>           <input class="form-control required inputClick" readonly="readonly" title="Formato fecha err&oacute;nea" name="fecha_alta" type="text" value="13/07/2014" id="fecha_alta">      </div>
+        <div class="form-group listSelect">
+            <label for="area">&Aacute;rea de empleo</label>         <input readonly="readonly" class="form-control" title="Introduzca el &aacute;rea del puesto de trabajo" name="area" type="text" value="Seleccione un &aacute;rea de empleo" id="area">          <div class="newListSelected" tabindex="0" style="position: static;">
+             <ul class="newList hidden"  style="top: 23px; height: 212px; left: 0px;    "><li id="element_2001" class="suboptions" key="2001">
+        <span class="expand_element">[+]</span><a href="JavaScript:void(0);" class="">Administración de Empresas</a>
+        <ul class="hidden"><li key="110"><a href="JavaScript:void(0);">-Todos Administración de Empresas-</a></li><li key="111"><a href="JavaScript:void(0);">Administración y finanzas</a></li><li key="112"><a href="JavaScript:void(0);">Auditoría</a></li><li key="113"><a href="JavaScript:void(0);">Consultoría general y estratégica</a></li><li key="114"><a href="JavaScript:void(0);">Contabilidad</a></li><li key="115"><a href="JavaScript:void(0);">Dirección y gerencia</a></li><li key="116"><a href="JavaScript:void(0);">Gestión de cobros</a></li><li key="117"><a href="JavaScript:void(0);">Reporting y control de gestión</a></li><li key="118"><a href="JavaScript:void(0);">Tesorería</a></li></li></ul><li id="element_2001" class="suboptions" key="2001">
+        <span class="expand_element">[+]</span><a href="JavaScript:void(0);" class="">Administrativos y secretariado</a>
+        <ul class="hidden"><li key="120"><a href="JavaScript:void(0);">- Todos Administrativos y secretariado-</a></li><li key="121"><a href="JavaScript:void(0);">Administrativos</a></li><li key="122"><a href="JavaScript:void(0);">Recepcionistas</a></li><li key="123"><a href="JavaScript:void(0);">Secretariado</a></li></li></ul></ul>  
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="puesto">Puesto de trabajo</label>           <input class="form-control required" title="Introduzca el puesto de trabajo" name="puesto" type="text" value="" id="puesto">        </div>
+        
+        <div class="form-group">
+            <label for="plazas">Plazas ofertadas</label>            <input class="form-control required" title="Fomato num&eacute;rico err&oacute;neo" name="plazas" type="text" value="" id="plazas">      </div>
+        
+        <div class="form-group">
+            <label for="experiencia">Experiencia Laboral M&iacute;nima</label>          <select class="form-control" title="Introduzca los a&ntilde;os de experienia m&iacute;nimos" id="experiencia" name="experiencia"><option value="0">Sin experiencia</option><option value="1">&lt; 1 a&ntilde;o</option><option value="2">1 a&ntilde;o</option><option value="3">2 a&ntilde;os</option><option value="4">3 a&ntilde;os</option><option value="5">4 a&ntilde;os</option><option value="6">5 a&ntilde;os</option><option value="7">6 a&ntilde;os</option><option value="8">7 a&ntilde;os</option><option value="9">8 a&ntilde;os</option><option value="10">9 a&ntilde;os</option><option value="11">10 a&ntilde;os</option><option value="12">&gt; 10 a&ntilde;os</option></select>           </div>
+        
+        <div class="form-group">
+            <label for="jornada_laboral">Jornada Laboral</label>            <select class="form-control" title="Introduzca el tipo de jornada laboral" id="jornada_laboral" name="jornada_laboral"><option value="1">Media Jornada</option><option value="2">Jornada Completa</option><option value="3">Fines de semana y/o festivos</option><option value="4">Otros</option></select>      </div>
+        
+        <div class="form-group">
+            <label for="tipo_contrato">Tipo de contrato</label>         <select class="form-control" title="Introduzca el tipo de contrato laboral" id="tipo_contrato" name="tipo_contrato"><option value="1">Indefinido</option><option value="2">Temporal</option></select>       </div>
+        
+        <div class="form-group hidden" id="capa_meses_contrato">
+            <label for="meses_contrato">Meses de contrato</label>           <select class="form-control" title="Introduzca el tipo de contrato laboral" id="meses_contrato" name="meses_contrato"><option value="1">1 mes</option><option value="2">2 meses</option><option value="3">3 meses</option><option value="4">4 meses</option><option value="5">5 meses</option><option value="6">6 meses</option><option value="7">7 meses</option><option value="8">8 meses</option><option value="9">9 meses</option><option value="10">10 meses</option><option value="11">11 meses</option><option value="12">12 meses</option><option value="13">&lt;1 mes</option></select>        </div>
+        
+        <div class="form-group" id="fechaCaducidadOferta" data-date-format="DD/MM/YYYY"> 
+            <label for="fecha_caducidad">Caducidad Oferta</label>           <input class="form-control required inputClick" readonly="readonly" title="Formato fecha err&oacute;nea" name="fecha_caducidad" type="text" value="13/07/2014" id="fecha_caducidad">        </div>
+        <div class="form-group">
+            <label for="salario">Salario</label>            <select class="form-control" title="Introduzca el salario laboral" id="salario" name="salario"><option value="0">&lt; 10.000&euro;</option><option value="1">Entre 10.000&euro; y 15.000&euro;</option><option value="2">Entre 15.000&euro; y 20.000&euro;</option><option value="3">Entre 20.000&euro; y 25.000&euro;</option><option value="4">Entre 25.000&euro; y 30.000&euro;</option><option value="5">Entre 30.000&euro; y 35.000&euro;</option><option value="6">Entre 35.000&euro; y 40.000&euro;</option><option value="7">Entre 40.000&euro; y 45.000&euro;</option><option value="8">Entre 45.000&euro; y 50.000&euro;</option><option value="9">Entre 50.000&euro; y 55.000&euro;</option><option value="10">Entre 55.000&euro; y 60.000&euro;</option><option value="11">Entre 60.000&euro; y 65.000&euro;</option><option value="12">&gt; 65.000&euro;</option></select>     </div>
+        <div class="form-group">
+            <div>
+                <label for="perfil_edad_min">Perfil Edad</label>            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <input class="form-control required" title="La edad m&iacute;nima es de 16 a&ntilde;os" placeHolder="Desde..." name="perfil_edad_min" type="text" id="perfil_edad_min">             </div>
+                <div class="col-md-6">
+                    <input class="form-control required" title="La edad m&aacute;xima es de 67 a&ntilde;os" placeHolder="Hasta..." name="perfil_edad_max" type="text">              </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="calle">Direcci&oacute;n</label>         <div class="row">
+                <div class="col-md-6">
+                    <input class="form-control required" title="Inserte la calle" placeHolder="Calle" name="calle" type="text" value="C/ DR. CALLE, 1" id="calle">              </div>
+                <div class="col-md-6">
+                    <input class="form-control required" title="Inserte el c&oacute;digo postal" placeHolder="C&oacute;digo Postal" name="cp" type="text" value="46001">                </div>
+            </div>
+            <div class="row" style="margin-top:10px">
+                <div class="col-md-6">
+            <select class="form-control" title="Introduzca la provincia d&oacute;nde se localiza su empresa" placeHolder="Provincia" id="provincia" name="provincia"><option value="1">&Aacute;lava (Vitoria)</option><option value="2">Albacete</option><option value="3">Alicante</option><option value="4">Almer&iacute;a</option><option value="5">&Aacute;vila</option><option value="6">Badajoz</option><option value="7">Baleares (Palma de Mallorca)</option><option value="8">Barcelona</option><option value="9">Burgos</option><option value="10">C&aacute;ceres</option><option value="11">C&aacute;diz</option><option value="12">Castell&oacute;n</option><option value="13">Ciudad Real</option><option value="14">C&oacute;rdoba</option><option value="15">Coru&ntilde;a</option><option value="16">Cuenca</option><option value="17">Gerona</option><option value="18">Granada</option><option value="19">Guadalajara</option><option value="20">Guip&uacute;zcoa (San Sebasti&aacute;n)</option><option value="21">Huelva</option><option value="22">Huesca</option><option value="23">Ja&eacute;n</option><option value="24">Le&oacute;n</option><option value="25">L&eacute;rida</option><option value="26">La Rioja (Logro&ntilde;o)</option><option value="27">Lugo</option><option value="28">Madrid</option><option value="29">M&aacute;laga</option><option value="30">Murcia</option><option value="31">Navarra (Pamplona)</option><option value="32">Orense</option><option value="33">Asturias (Oviedo)</option><option value="34">Palencia</option><option value="35">Las Palmas</option><option value="36">Pontevedra</option><option value="37">Salamanca</option><option value="38">Santa Cruz de Tenerife</option><option value="39">Cantabria (Santander)</option><option value="40">Segovia</option><option value="41">Sevilla</option><option value="42">Soria</option><option value="43">Tarragona</option><option value="44">Teruel</option><option value="45">Toledo</option><option value="46" selected="selected">Valencia</option><option value="47">Valladolid</option><option value="48">Vizcaya (Bilbao)</option><option value="49">Zamora</option><option value="50">Zaragoza</option><option value="51">Ceuta</option><option value="52">Melilla</option></select>              </div>
+                <div class="col-md-6">
+            <select class="form-control" title="Introduzca la provincia d&oacute;nde se localiza su empresa" placeHolder="Provincia" id="municipio" name="municipios"><option value="6972">Ademuz</option><option value="6973">Ador</option><option value="6974">Agullent</option><option value="6975">Aielo de Malferit</option><option value="6976">Aielo de Rugat</option><option value="6977">Alaqu&agrave;s</option><option value="6978">Albaida</option><option value="6979">Albal</option><option value="6980">Albalat de la Ribera</option><option value="6981">Albalat dels Sorells</option><option value="6982">Albalat dels Tarongers</option><option value="6983">Alberic</option><option value="6984">Alborache</option><option value="6985">Alboraya</option><option value="6986">Albuixech</option><option value="6987">Alc&agrave;ntera de X&uacute;quer</option><option value="6988">Alc&agrave;sser</option><option value="6989">Alcublas</option><option value="6990">Alc&uacute;dia de Crespins, l&#039;</option><option value="6991">Alc&uacute;dia, l&#039;</option><option value="6992">Aldaia</option><option value="6993">Alfafar</option><option value="6994">Alfara de la Baronia</option><option value="6995">Alfara del Patriarca</option><option value="6996">Alfarp</option><option value="6997">Alfarras&iacute;</option><option value="6998">Alfauir</option><option value="6999">Algar de Palancia</option><option value="7000">Algemes&iacute;</option><option value="7001">Algimia de Alfara</option><option value="7002">Alginet</option><option value="7003">Alm&agrave;ssera</option><option value="7004">Almiser&agrave;</option><option value="7005">Almoines</option><option value="7006">Almussafes</option><option value="7007">Alpuente</option><option value="7008">Alqueria de la Comtessa, l&#039;</option><option value="7009">Alzira</option><option value="7010">Andilla</option><option value="7011">Anna</option><option value="7012">Antella</option><option value="7013">Aras de los Olmos</option><option value="7014">Atzeneta d&#039;Albaida</option><option value="7015">Ayora</option><option value="7016">Barx</option><option value="7017">Barxeta</option><option value="7018">B&egrave;lgida</option><option value="7019">Bellreguard</option><option value="7020">Bell&uacute;s</option><option value="7021">Benag&eacute;ber</option><option value="7022">Benaguasil</option><option value="7023">Benavites</option><option value="7024">Beneixida</option><option value="7025">Benet&uacute;sser</option><option value="7026">Beniarj&oacute;</option><option value="7027">Beniatjar</option><option value="7028">Benicolet</option><option value="7029">Benicull de X&uacute;quer</option><option value="7030">Benifai&oacute;</option><option value="7031">Benifair&oacute; de la Valldigna</option><option value="7032">Benifair&oacute; de les Valls</option><option value="7033">Benifl&aacute;</option><option value="7034">Benig&agrave;nim</option><option value="7035">Benimodo</option><option value="7036">Benimuslem</option><option value="7037">Beniparrell</option><option value="7038">Benirredr&agrave;</option><option value="7039">Benisan&oacute;</option><option value="7040">Benissoda</option><option value="7041">Benisuera</option><option value="7042">B&eacute;tera</option><option value="7043">Bicorp</option><option value="7044">Bocairent</option><option value="7045">Bolbaite</option><option value="7046">Bonrep&ograve;s i Mirambell</option><option value="7047">Bufali</option><option value="7048">Bugarra</option><option value="7049">Bu&ntilde;ol</option><option value="7050">Burjassot</option><option value="7051">Calles</option><option value="7052">Camporrobles</option><option value="7053">Canals</option><option value="7054">Canet d&#039;En Berenguer</option><option value="7055">Carcaixent</option><option value="7056">C&agrave;rcer</option><option value="7057">Carlet</option><option value="7058">Carr&iacute;cola</option><option value="7059">Casas Altas</option><option value="7060">Casas Bajas</option><option value="7061">Casinos</option><option value="7062">Castell&oacute; de Rugat</option><option value="7063">Castellonet de la Conquesta</option><option value="7064">Castielfabib</option><option value="7065">Catadau</option><option value="7066">Catarroja</option><option value="7067">Caudete de las Fuentes</option><option value="7068">Cerd&agrave;</option><option value="7069">Chella</option><option value="7070">Chelva</option><option value="7071">Chera</option><option value="7072">Cheste</option><option value="7073">Chiva</option><option value="7074">Chulilla</option><option value="7075">Cofrentes</option><option value="7076">Corbera</option><option value="7077">Cortes de Pall&aacute;s</option><option value="7078">Cotes</option><option value="7079">Cullera</option><option value="7080">Daim&uacute;s</option><option value="7081">Dome&ntilde;o</option><option value="7082">Dos Aguas</option><option value="7083">Eliana, l&#039;</option><option value="7084">Emperador</option><option value="7085">Enguera</option><option value="7086">&Egrave;nova, l&#039;</option><option value="7087">Estivella</option><option value="7088">Estubeny</option><option value="7089">Faura</option><option value="7090">Favara</option><option value="7091">Foios</option><option value="7092">Font de la Figuera, la</option><option value="7093">Font d&#039;En Carr&ograve;s, la</option><option value="7094">Fontanars dels Alforins</option><option value="7095">Fortaleny</option><option value="7096">Fuenterrobles</option><option value="7097">Gandia</option><option value="7098">G&aacute;tova</option><option value="7099">Gavarda</option><option value="7100">Genov&eacute;s</option><option value="7101">Gestalgar</option><option value="7102">Gilet</option><option value="7103">Godella</option><option value="7104">Godelleta</option><option value="7105">Granja de la Costera, la</option><option value="7106">Guadass&eacute;quies</option><option value="7107">Guadassuar</option><option value="7108">Guardamar de la Safor</option><option value="7109">Higueruelas</option><option value="7110">Jalance</option><option value="7111">Jarafuel</option><option value="7112">Llanera de Ranes</option><option value="7113">Llaur&iacute;</option><option value="7114">Ll&iacute;ria</option><option value="7115">Llocnou de la Corona</option><option value="7116">Llocnou de Sant Jeroni</option><option value="7117">Llocnou d&#039;En Fenollet</option><option value="7118">Llombai</option><option value="7119">Llosa de Ranes, la</option><option value="7120">Llutxent</option><option value="7121">Loriguilla</option><option value="7122">Losa del Obispo</option><option value="7123">Macastre</option><option value="7124">Manises</option><option value="7125">Manuel</option><option value="7126">Marines</option><option value="7127">Massalav&eacute;s</option><option value="7128">Massalfassar</option><option value="7129">Massamagrell</option><option value="7130">Massanassa</option><option value="7131">Meliana</option><option value="7132">Millares</option><option value="7133">Miramar</option><option value="7134">Mislata</option><option value="7135">Mogente/Moixent</option><option value="7136">Moncada</option><option value="7137">Montaverner</option><option value="7138">Montesa</option><option value="7139">Montitxelvo/Montichelvo</option><option value="7140">Montroi/Montroy</option><option value="7141">Montserrat</option><option value="7142">Museros</option><option value="7143">N&aacute;quera</option><option value="7144">Navarr&eacute;s</option><option value="7145">Novel&eacute;/Novetl&egrave;</option><option value="7146">Oliva</option><option value="7147">Olleria, l&#039;</option><option value="7148">Olocau</option><option value="7149">Ontinyent</option><option value="7150">Otos</option><option value="7151">Paiporta</option><option value="7152">Palma de Gand&iacute;a</option><option value="7153">Palmera</option><option value="7154">Palomar, el</option><option value="7155">Paterna</option><option value="7156">Pedralba</option><option value="7157">Petr&eacute;s</option><option value="7158">Picanya</option><option value="7159">Picassent</option><option value="7160">Piles</option><option value="7161">Pinet</option><option value="7162">Pobla de Farnals, la</option><option value="7163">Pobla de Vallbona, la</option><option value="7164">Pobla del Duc, la</option><option value="7165">Pobla Llarga, la</option><option value="7166">Poliny&agrave; de X&uacute;quer</option><option value="7167">Potr&iacute;es</option><option value="7168">Pu&ccedil;ol</option><option value="7169">Puebla de San Miguel</option><option value="7170">Puig de Santa Maria, el</option><option value="7171">Quart de les Valls</option><option value="7172">Quart de Poblet</option><option value="7173">Quartell</option><option value="7174">Quatretonda</option><option value="7175">Quesa</option><option value="7176">Rafelbunyol</option><option value="7177">Rafelcofer</option><option value="7178">Rafelguaraf</option><option value="7179">R&aacute;fol de Salem</option><option value="7180">Real</option><option value="7181">Real de Gand&iacute;a</option><option value="7182">Requena</option><option value="7183">Riba-roja de T&uacute;ria</option><option value="7184">Riola</option><option value="7185">Rocafort</option><option value="7186">Rotgl&agrave; i Corber&agrave;</option><option value="7187">R&oacute;tova</option><option value="7188">Rugat</option><option value="7189">Sagunto/Sagunt</option><option value="7190">Salem</option><option value="7191">San Antonio de Benag&eacute;ber</option><option value="7192">Sant Joanet</option><option value="7193">Sedav&iacute;</option><option value="7194">Segart</option><option value="7195">Sellent</option><option value="7196">Sempere</option><option value="7197">Senyera</option><option value="7198">Serra</option><option value="7199">Siete Aguas</option><option value="7200">Silla</option><option value="7201">Simat de la Valldigna</option><option value="7202">Sinarcas</option><option value="7203">Sollana</option><option value="7204">Sot de Chera</option><option value="7205">Sueca</option><option value="7206">Sumac&agrave;rcer</option><option value="7207">Tavernes Blanques</option><option value="7208">Tavernes de la Valldigna</option><option value="7209">Teresa de Cofrentes</option><option value="7210">Terrateig</option><option value="7211">Titaguas</option><option value="7212">Torrebaja</option><option value="7213">Torrella</option><option value="7214">Torrent</option><option value="7215">Torres Torres</option><option value="7216">Tous</option><option value="7217">Tu&eacute;jar</option><option value="7218">Tur&iacute;s</option><option value="7219">Utiel</option><option value="7220" selected="selected">Valencia</option><option value="7221">Vallada</option><option value="7222">Vallanca</option><option value="7223">Vall&eacute;s</option><option value="7224">Venta del Moro</option><option value="7225">Vilallonga/Villalonga</option><option value="7226">Vilamarxant</option><option value="7227">Villanueva de Castell&oacute;n</option><option value="7228">Villar del Arzobispo</option><option value="7229">Villargordo del Cabriel</option><option value="7230">Vinalesa</option><option value="7231">X&agrave;tiva</option><option value="7232">Xeraco</option><option value="7233">Xeresa</option><option value="7234">Xirivella</option><option value="7235">Y&aacute;tova</option><option value="7236">Yesa, La</option><option value="7237">Zarra</option></select>               </div>
+            </div>
+        </div>
+        
+            
+        
+            <div class="form-group">
+            <hr><h4>Funciones estándar</h4><hr>
+            <label for="nivel_formativo_min">Nivel formativo m&iacute;nimo</label><br>
+            <select class="form-control" title="Introduzca el nivel formativo m&iacute;nimo" id="formacion" name="nivel_formativo_min"><option value="0">Ninguna</option><option value="1">Educaci&oacute;n obligatoria</option><option value="2">Bachillerato</option><option value="3">FP Grado Medio</option><option value="4">FP Grado Superior</option><option value="5">Educaci&oacute;n Superior</option></select>           </div>
+            <div class="form-group">
+            
+                <div class="listSelect" tabindex="0" style="position: static;">
+                    <label for="titulaciones">Titulaciones requeridas</label>                   <input readonly="readonly" class="form-control" title="Introduce las titulaciones requeridas" name="titulaciones" type="text" value="Seleccione las titulaciones requeridas" id="titulaciones">                 <div class="newListSelected" id="cajaTitulaciones" tabindex="0" style="position: static;">
+                    </div>
+                </div>
+            </div>
+        <!--
+            <label for="">Carnets profesionales</label><br>
+            <input name="conocimientos_html" type="checkbox" value="value">    Instalación térmica de edificios según RITE 2007 <BR>
+            <input name="conocimientos_html" type="checkbox" value="value"> Operador de grúa torre<BR>
+            <input name="conocimientos_html" type="checkbox" value="value"> Operador de grúa móvil autopropulsada<BR>
+            <input name="conocimientos_html" type="checkbox" value="value"> Electricista minero<BR>
+            <input name="conocimientos_html" type="checkbox" value="value"> Vigilante de obras subterráneas y mineras de interior<BR>
+            <input name="conocimientos_html" type="checkbox" value="value"> Operador de maquinaria minera móvil<BR>
+            <input name="conocimientos_html" type="checkbox" value="value"> Profesional que manipule equipos que contengan gases fluorados<BR>
+            <input name="conocimientos_html" type="checkbox" value="value"> Otras actividades industriales se acreditan mediante habilitación directa a partir del cumplimiento de una serie de requisitos, sin que exista el carné propiamente dicho:  <BR>
+            <input name="conocimientos_html" type="checkbox" value="value"> Instalador de gas<BR>
+            <input name="conocimientos_html" type="checkbox" value="value"> Operador industrial de calderas<BR>
+            <input name="conocimientos_html" type="checkbox" value="value"> Conservador/Reparador frío industrial (frigorista)<BR>
+            <input name="conocimientos_html" type="checkbox" value="value"> Instalador y/o reparador de productos petrolíferos líquidos (PPL)
+            <br><br>
+            <label for="">Permisos de conducir</label><br>
+            <input name="conocimientos_html" type="checkbox" value="value"> Permiso AM<br>
+
+
+            <input name="conocimientos_html" type="checkbox" value="value"> Permiso A1<br>
+            
+            <input name="conocimientos_html" type="checkbox" value="value"> Permiso A2
+            <br>
+            <input name="conocimientos_html" type="checkbox" value="value"> Permiso A
+            <br>
+            <input name="conocimientos_html" type="checkbox" value="value"> Permiso B
+            <br>
+            <input name="conocimientos_html" type="checkbox" value="value"> Permiso B+E<br>
+            
+            <input name="conocimientos_html" type="checkbox" value="value"> Permiso BTP<br>
+            
+            <input name="conocimientos_html" type="checkbox" value="value"> Permiso C1-C<br>
+            
+            <input name="conocimientos_html" type="checkbox" value="value"> Permiso D1-D<br>
+            
+            <input name="conocimientos_html" type="checkbox" value="value"> Permiso C1-C-D1-D+E!-->
+        
+                
+        
+     </form>     
+     
+     <script type="text/javascript">
+            
+            $(function () {
+                var url="http://localhost/proyectosEclipse/adehon/public/empresa/municipios"+"/"+$('#provincia').val();
+                
+                $('#provincia').change(function() {
+                    
+                    var url="http://localhost/proyectosEclipse/adehon/public/empresa/municipios"+"/"+$(this).val();
+                    
+                    $.getJSON(url, function( data ) {
+                        $('#municipio').html('');
+                        $.each(data, function(key, val){
+                            $('#municipio').append('<option value="'+key+'">'+val[0]+'</option');
+                        });
+                    });
+                });
+                $('#tipo_contrato').change(function() {
+                    if($(this).val()=='2') {
+                        $('#capa_meses_contrato').removeClass('hidden');
+                    }
+                    else if(!$('#capa_meses_contrato').hasClass('hidden')) {
+                        $('#capa_meses_contrato').addClass('hidden')
+                    }
+                });
+                
+                $.validator.addMethod( "intMore0", function ( value, element ) {
+                    value=parseFloat(value);
+                    if(Math.round(value) === value && value > 0) 
+                        return true;
+                    else return false;
+                });
+
+                $.validator.addMethod("intEdad", function ( value, element ) {
+                
+                    value=parseFloat(value);
+                    if((Math.round(value) === value) && value > 15 && value < 68) 
+                        return true;
+                    else return false;
+                });
+
+                
+
+                
+                
+                $("#formRegistro").validate({
+                    rules:{
+                        plazas: {
+                            intMore0:true
+                        },
+                
+                    
+                        puesto: {
+                            required:true
+                        },
+    
+                        perfil_edad_min:{
+                            intEdad:true
+                        },
+                        perfil_edad_max:{
+                            intEdad:true
+                        }
+                    }
+                        
+                });
+                
+                $('#fechaAltaOferta').datetimepicker({
+                    pickTime: false,
+                    language:'es'
+                });
+
+                $('#fechaCaducidadOferta').datetimepicker({
+                    pickTime: false,
+                    language:'es'
+                });
+
+
+                $('body').click(function(event) {
+                    
+                    if(!$('.newList').hasClass('hidden')) {
+                        $('.newList').addClass('hidden');
+                    }
+                });
+                
+                
+                $('body').on('click', '.suboptions', function(event) {
+                      event.stopPropagation();
+                    if($(this).children('ul').hasClass('hidden')){
+                        $(this).parent().find('ul').addClass('hidden');
+                        $(this).parent().find('.expand_element').html('[+]');
+                        $(this).children('ul').removeClass('hidden');
+                        $(this).children('.expand_element').html('[-]');
+                    }
+                    else {
+                        $(this).children('ul').addClass('hidden');
+                        $(this).children('.expand_element').html('[+]');
+                    }
+                });
+
+                $('body').on('click', '.suboptions ul', function(event) {
+                    event.stopPropagation();
+                });
+                
+                $('.listSelect input').click(function(event) {
+                    event.stopPropagation();
+                    var caja=$(this).parent().find('.newList');
+                    if(caja.hasClass('hidden')) {
+                        caja.removeClass('hidden');
+                    }
+                    else {
+                        caja.addClass('hidden');
+                    }
+                });
+
+                $('body').not('.suboptions').on('click', '.suboptions ul li', function() {
+                    if($(this).parent().parent().parent().hasClass('selectMultiple')) {
+                        if($(this).hasClass('active')) {
+                            $(this).removeClass('active');
+                        }
+                        else $(this).addClass('active');
+                    }
+                    else {  
+                        input=$(this).parent().parent().parent().parent().parent().find('input');
+                        input.val($(this).text());
+                        $("input[name='area_empleo']").remove();
+                        $('<input>').attr({
+                            'name':'area_empleo',
+                            'type':'hidden',
+                            'value':$(this).attr('key')
+                            }).appendTo('#formRegistro');
+
+                        $('.newList').addClass('hidden');
+                        input.focus();
+                    }                   
+                
+                });
+                
+                
+                $('#formacion').change(function() {
+                    var url="http://localhost/proyectosEclipse/adehon/public/empresa/titulaciones"+"/"+$(this).val();
+                    $('#cajaTitulaciones').html('');
+                    $.get(url, function( data ) {                       
+                        $('#cajaTitulaciones').html(data);
+                    });
+                });
+                
+
+
+            });
+
+            
+        </script>
+    </div>
+</div>
+      </div>
+    </div>
+    </body>
+</html>

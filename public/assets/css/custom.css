@@ -1,0 +1,52 @@
+/**
+ *
+ * Apply your custom CSS here
+ *
+*/
+
+body {	
+}
+
+a {
+}
+
+
+/*GESTOR EMPRESAS*/
+
+.listados tbody tr {
+    cursor:pointer;
+}
+
+
+.listados tbody tr:hover td{
+    background-color: whitesmoke !important;
+}
+
+.error {
+    color:#FF0000;
+    border-color:#FF0000;
+}
+
+.red {
+    color: red;
+}
+
+.dropSquare {
+    display: inline-block;
+    background: #ededed;
+    border: 2px dashed #cbcbcb;
+    width: 100%;
+    min-height: 150px !important;
+    height: 150px;
+    line-height: 150px;
+    text-align: center;
+    font-size: 15px;
+    color: #646565;
+    margin-bottom: 30px;
+    /* -webkit-border-radius: 50%; */
+    /* -webkit-background-clip: padding-box; */
+    -moz-background-clip: padding;
+    /* border-radius: 50%; */
+    background-clip: padding-box;
+    cursor: pointer;
+}
