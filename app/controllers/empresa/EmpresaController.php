@@ -351,11 +351,15 @@ class Empresa_EmpresaController extends \BaseController {
 	}
 	
 	public function postFichaEmpresa($id_empresa) {
-		$empresa=new Empresa;
-		$empresa=$empresa->find($id_empresa);
-		$empresa->fill(Input::all());
-		$empresa->save();
-		return "ok";
+		$empresa = Empresa::find($id_empresa);
+        $data = $_POST;
+        foreach ($data as $index => &$value) {
+            if($index == "field_eval_fecha_evaluacion")
+                $value = DateSql::changeToSql($value);
+        }
+
+        $this->saveCRUDForm($empresa, $data);
+        return Redirect::back()->withOk('Ficha modificada con éxito');
 	}
 	
 	public function getEliminarEmpresa($id_empresa) {

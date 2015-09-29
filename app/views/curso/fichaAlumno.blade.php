@@ -75,10 +75,10 @@
 					<div class="col-md-9">
 						<select class="form-control" id="resultado" name="resultado">
 							<option value="">Seleccione</option>
-							<option <?php if($data->resultado==1){ ?>selected="selected"<?}?> value="1">Fin con Eval. Positiva</option>
-							<option <?php if($data->resultado==2){ ?>selected="selected"<?}?> value="2">Fin con Eval. Negativa</option>
-							<option <?php if($data->resultado==3){ ?>selected="selected"<?}?> value="3">Baja por insercion</option>
-							<option <?php if($data->resultado==4){ ?>selected="selected"<?}?> value="4">Fin por otras causas</option>
+							<option <?php if($data->resultado==1): ?>selected="selected"<?php endif ?> value="1">Fin con Eval. Positiva</option>
+							<option <?php if($data->resultado==2): ?>selected="selected"<?php endif ?> value="2">Fin con Eval. Negativa</option>
+							<option <?php if($data->resultado==3): ?>selected="selected"<?php endif ?> value="3">Baja por insercion</option>
+							<option <?php if($data->resultado==4): ?>selected="selected"<?php endif ?> value="4">Fin por otras causas</option>
 						</select>
 					</div>
 				</div>

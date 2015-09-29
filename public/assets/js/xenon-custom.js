@@ -1571,7 +1571,7 @@ function cbr_replace()
 		});
 		
 		$el.on('change', function(ev)
-		{	
+		{
 			$wrp.removeClass('cbr-checked');
 			
 			if($el.is(':checked'))

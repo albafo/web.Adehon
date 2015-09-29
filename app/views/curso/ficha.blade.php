@@ -51,6 +51,25 @@
                 <span class="hidden-md">Ficha formativa</span>
             </a>
         </li>
+        <li>
+            <a href="#tab-evaluacion" data-toggle="tab">
+                <span class="visible-md"><i class="fa-user"></i></span>
+                <span class="hidden-md">Evaluación</span>
+            </a>
+        </li>
+        <li>
+            <a href="#tab-revision-contrato" data-toggle="tab">
+                <span class="visible-md"><i class="fa-user"></i></span>
+                <span class="hidden-md">Revisión del contrato</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="#tab-checklists" data-toggle="tab">
+                <span class="visible-md"><i class="fa-user"></i></span>
+                <span class="hidden-md">Checklists</span>
+            </a>
+        </li>
     </ul>
 
     <div class="tab-content">
@@ -707,6 +726,9 @@
                 </div>
             </form>
         </div>
+        @include("curso.tab-evaluacion")
+        @include("curso.tab-revision-contrato")
+        @include("curso.tab-checklists")
 
     </div>
     <script>
@@ -1271,5 +1293,7 @@
         }
 
     </script>
+
+    {{ HTML::script('js/framework/listAjax.js')}}
 
 @stop

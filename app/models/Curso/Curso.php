@@ -174,10 +174,15 @@ use Illuminate\Database\Eloquent\SoftDeletingTrait;
 class Curso extends Eloquent {
 		
 	use SoftDeletingTrait;
-	protected $guarded = array('id');	
-	
+	protected $guarded = array('id');
 
-	public static function path_doc() {
+    public function __construct(array $attributes = array())
+    {
+        parent::__construct($attributes);
+    }
+
+
+    public static function path_doc() {
 		return app_path()."/safe_uploads/cursos";
 	}
 	
@@ -239,7 +244,32 @@ class Curso extends Eloquent {
 	public function documentacion() {
 		return $this->belongsToMany('Documentacion', 'documentacion_cursos');
 	}
-	
+
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function tareasChecklistInicio()
+    {
+        return $this->hasMany("Curso_TareasChecklistInicio", "curso_id");
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function checkListSeguimiento()
+    {
+        return $this->hasMany("Curso_CheckListSeguimiento", "curso_id");
+    }
+
+    public function checkListFinal()
+    {
+        return $this->hasMany("Curso_CheckListFinal", "curso_id");
+    }
+
+
+
+
 	
 }
 

@@ -50,8 +50,10 @@ class Curso_CursoController extends \BaseController {
 			
 			$docs[$documento->documentacion_id]=$documento->nombreWeb;
 		}
-		
-		
+
+
+
+
 		
 		return View::make('curso/ficha', array('data'=>$curso, 'empresa_solicitante'=>$empresa_s, 'documentos'=>$curso->documentacion()->get(), 'allDocs'=>$docs));
 		
@@ -315,10 +317,62 @@ class Curso_CursoController extends \BaseController {
 		$curso=new Curso;
 		$curso->fill($data);
 		$curso->save();
+        Event::fire("curso.add", array($curso));
 		return Redirect::to('curso/ficha/'.$curso->id)->with('ok', 'Curso añadido con éxito');
 	}
-	
-	
+
+
+    public function postEvaluacion($idCurso)
+    {
+        $curso = Curso::find($idCurso);
+        $curso->fill($_POST);
+        $curso->save();
+        return Redirect::to("curso/ficha/$idCurso#tab-evaluacion")->withOk("Ficha modificada con éxito");
+    }
+
+    public function postRevisionContrato($idCurso)
+    {
+        $curso = Curso::find($idCurso);
+        $curso->fill($_POST);
+        $curso->save();
+        return Redirect::to("curso/ficha/$idCurso#tab-revision-contrato")->withOk("Ficha modificada con éxito");
+    }
+
+    public function postCambioResponsable($idCurso)
+    {
+        $curso = Curso::find($idCurso);
+        $curso->fill($_POST);
+        $curso->save();
+        return Redirect::to("curso/ficha/$idCurso#tab-checklists")->withOk("Responsable modificado con éxito");
+    }
+
+    public function getCambioTareaInicio($id)
+    {
+        $tarea = Curso_TareasChecklistInicio::find($id);
+        $nombreField = Request::get("field");
+        $value = Request::get("value");
+        if($nombreField == "fecha_limite") {
+            $value = DateSql::changeToSql($value);
+        }
+        $tarea->$nombreField = $value;
+        $tarea->save();
+    }
+
+
+    public function getAddTareaInicio($idCurso)
+    {
+        $tarea = new Curso_TareasChecklistInicio();
+        $tarea->curso_id = $idCurso;
+        $tarea->save();
+        return json_encode($tarea->id);
+    }
+
+    public function getRemoveTareaInicio($idTarea)
+    {
+        Curso_TareasChecklistInicio::destroy(array($idTarea));
+    }
+
+
 	
 	
 	

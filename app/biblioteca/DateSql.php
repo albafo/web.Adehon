@@ -10,7 +10,7 @@ class DateSql {
 	public static function changeToSql($date) {
 		if($date!="") {
 			$date=explode("/", $date);
-			return $date[2]."/".$date[1]."/".$date[0];
+			return $date[2]."-".$date[1]."-".$date[0];
 		}
 		
 	}

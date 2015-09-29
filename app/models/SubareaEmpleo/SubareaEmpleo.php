@@ -20,7 +20,7 @@ class SubareaEmpleo extends Eloquent {
 	
 	public static function subareas($id_area) {
 		$vector=SubareaEmpleo::where('areaEmpleo_id', '=', $id_area)->orderBy('nombre')->get();
-		
+		$vectorReturn = array();
 		foreach($vector as $item) {
 			$vectorReturn[$item->id]=$item->nombre;
 		}

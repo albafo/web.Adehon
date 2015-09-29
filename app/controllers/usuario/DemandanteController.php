@@ -28,6 +28,7 @@ class Usuario_DemandanteController extends \BaseController {
 		$idiomas=Funcion::where('grupo_id', '=', 4)->get();
 		$informatica=Funcion::where('grupo_id', '=', 5)->get();
 		$funcionesUser=$data->usuarios->funciones;
+        $funcionesArrReg = array();
 		foreach($funcionesUser as $funcion){
 			$funcionesArrReg[]=$funcion->funcion_id;
 		}
@@ -45,7 +46,11 @@ class Usuario_DemandanteController extends \BaseController {
 		$data_user=Input::get('usuario');	
 		$demandante=Demandante::find($id);
 		$data_user['fecha_nacimiento']=DateSql::changeToSql($data_user['fecha_nacimiento']);
-		$demandante->usuarios->fill($data_user)->save();
+		$usuario = $demandante->usuarios;
+        foreach($data_user as $index=>$value) {
+            $usuario->$index=$value;
+        }
+        $usuario->save();
 		$demandante->usuarios->titulaciones()->detach();
 		if(null!==Input::get('titulaciones'))
 			$demandante->usuarios->titulaciones()->attach(Input::get('titulaciones'));
@@ -98,7 +103,121 @@ class Usuario_DemandanteController extends \BaseController {
 
     public function getNuevo()
     {
-        return View::make("demandante.ficha");
+
+        $provincias=new Provincia;
+
+        $estudios=Estudio::all();
+        $titulos=Titulacion::all();
+        $estudiosArr=null;
+        foreach($estudios as $estudio) {
+            $estudiosArr[$estudio->id]=$estudio->nombre;
+        }
+        $titulosArr=array();
+        foreach($titulos as $titulo) {
+            $titulosArr[$titulo->id]=$titulo->nombre;
+        }
+
+
+        $carnetsP=Funcion::where('grupo_id', '=', 2)->get();
+        $idiomas=Funcion::where('grupo_id', '=', 4)->get();
+        $informatica=Funcion::where('grupo_id', '=', 5)->get();
+
+        $areas=AreasEmpleo::vector();
+        return View::make("demandante.nuevo", array( 'areas'=>$areas,  'informatica'=>$informatica,  'idiomas'=>$idiomas, 'carnetsP'=>$carnetsP,  'titulos'=>$titulosArr, 'estudios'=>$estudiosArr,  'provincias'=>$provincias->arraySelect()));
+    }
+
+    public function postNuevo()
+    {
+        if (Input::get("tipoUsuario") == "no-usuario") {
+            $usuario = new Usuario();
+
+            foreach (Input::get('usuario') as $index => $value) {
+
+                $usuario->$index = $value;
+            }
+
+            $usuario->save();
+        }
+
+        $demandante  = new Demandante();
+
+        $demandante->usuarios()->associate($usuario);
+
+        $demandante->save();
+
+        return Redirect::to("demandante/ficha-demandante/".$demandante->id);
+
+
+
+    }
+
+    public function getConsultaDni()
+    {
+        $dni = $_GET["dni"];
+        $usuario = Usuario::whereDni($dni)->first();
+
+        $result['tipo_usuario'] = "no-usuario";
+
+        if($usuario) {
+            $result['tipo_usuario'] = "no-demandante";
+            $result['usuario'] = $usuario;
+            $demandante = Demandante::whereUsuarioId($usuario->id)->first();
+            if($demandante) {
+                $result['tipo_usuario'] = "demandante";
+                $result['usuario'] = $demandante;
+            }
+        }
+
+        return $result;
+
+    }
+
+    public function getListado()
+    {
+        return View::make("demandante.listado");
+    }
+
+    public function getDemandantesDT()
+    {
+        $demandantes = new Demandante();
+        if($searchValue = Input::get("search.value")) {
+            $demandantes = $demandantes->join('usuarios', 'demandantes.usuario_id', '=', 'usuarios.id')
+                ->leftJoin('provincias', 'usuarios.provincia_id', '=', 'provincias.id')
+                ->leftJoin('municipios', 'usuarios.municipio_id', '=', 'municipios.id')
+                ->join('areasEmpleo', 'demandantes.areaEmpleo_id', '=', 'areasEmpleo.id')
+                ->join('subareasEmpleo', 'demandantes.subareaEmpleo_id', '=', 'subareasEmpleo.id')
+                ->where(function($query) use ($searchValue) {
+                   $query->orWhere('usuarios.nombre', 'LIKE', "%$searchValue%")
+                       ->orWhere('usuarios.apellidos', 'LIKE', "%$searchValue%")
+                       ->orWhere('provincias.NOMBRE', 'LIKE', "%$searchValue%")
+                       ->orWhere('municipios.NOMBRE', 'LIKE', "%$searchValue%")
+                       ->orWhere('areasEmpleo.nombre', 'LIKE', "%$searchValue%")
+                       ->orWhere('subareasEmpleo.nombre', 'LIKE', "%$searchValue%");
+                })
+                ->select("demandantes.*");
+
+
+
+        }
+        $filteredCount = $demandantes->count();
+        $demandantes = $demandantes->skip($_GET['start'])->take($_GET['length'])->get();
+
+        $demandantes->load("areaEmpleo");
+        $demandantes->load("subareaEmpleo");
+        $demandantes->load(array("usuarios.provincias", "usuarios.municipios"));
+
+        foreach($demandantes as $index=>$demandante) {
+            $demandantes[$index]['DT_RowId']='row_'.$demandante->id;
+        }
+
+
+        $return['draw']=Input::get('draw');
+        $return['data']=$demandantes;
+        $return['recordsTotal']=Demandante::count();
+        $return['recordsFiltered']=$filteredCount;
+
+        return $return;
+
     }
 }
 	

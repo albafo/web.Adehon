@@ -723,6 +723,8 @@
  	{{ HTML::script('js/additional-methods.min.js') }}
 	{{ HTML::script('assets/js/toastr/toastr.min.js') }}
 
+    {{ Renderer::renderJS() }}
+
 	
 	@yield('css_js_page')
 

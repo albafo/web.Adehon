@@ -48,4 +48,5 @@ return array(
     'Chumper\\Datatable' => array($vendorDir . '/chumper/datatable/src'),
     'Carbon' => array($vendorDir . '/nesbot/carbon/src'),
     'Boris' => array($vendorDir . '/d11wtq/boris/lib'),
+    'Biblioteca' => array($baseDir . '/app/biblioteca'),
 );

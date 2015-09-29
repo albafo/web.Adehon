@@ -32,3 +32,8 @@ Route::controller('/empleo/subarea', 'Empleo_SubareaController');
 Route::controller('/oferta', 'Ofertas_OfertaController');
 Route::controller('/error', 'ErrorController');
 
+Route::controller('/titulacion', 'Titulacion_TitulacionController');
+
+Route::controller('/ajax-list', 'AjaxListController');
+
+

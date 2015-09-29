@@ -8,21 +8,21 @@
 
 	</div>
 
-		<div class="breadcrumb-env">
+	<div class="breadcrumb-env">
 
-					<ol class="breadcrumb bc-1">
-						<li>
-				<a href="{{{url('gestor')}}}"><i class="fa-home"></i>Gestor</a>
-			</li>
-			<li>
-				<a href="{{{url('gestor/docentes')}}}">Docentes</a>
-			</li>
-					<li class="active">
+        <ol class="breadcrumb bc-1">
+            <li>
+                <a href="{{{url('gestor')}}}"><i class="fa-home"></i>Gestor</a>
+            </li>
+            <li>
+                <a href="{{{url('gestor/docentes')}}}">Docentes</a>
+            </li>
+            <li class="active">
 
-							<strong>{{{$data->nombre}}} {{{$data->apellidos}}}</strong>
-					</li>
+                <strong>{{{$data->nombre}}} {{{$data->apellidos}}}</strong>
+            </li>
 
-					</ol>
+        </ol>
 
 	</div>
 
@@ -33,6 +33,18 @@
 			<span class="visible-md"><i class="fa-home"></i></span>
 			<span class="hidden-md">Datos personales</span> </a>
 	</li>
+
+    <li>
+        <a href="#formacion-complementaria" data-toggle="tab">
+            <span class="visible-md"><i class="fa-home"></i></span>
+            <span class="hidden-md">Formación complementaria</span> </a>
+    </li>
+
+    <li>
+        <a href="#evaluaciones" data-toggle="tab">
+            <span class="visible-md"><i class="fa-home"></i></span>
+            <span class="hidden-md">Evaluaciones</span> </a>
+    </li>
 	
 </ul>
 
@@ -152,6 +164,9 @@
 			</div>
 		</div>
 	</div>
+
+    @include('docente/tab-formacionComplementaria')
+    @include('docente/tab-evaluacion-inicial')
 </div>
 <script>
 	$(function(){
@@ -176,4 +191,7 @@
 		})
 	});
 </script>
+
+{{ HTML::script('js/framework/listAjax.js')}}
+
 @stop

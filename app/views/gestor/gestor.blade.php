@@ -10,8 +10,8 @@
 			
 			var valorOrigen=$(id_origen).val();
 			var first=true;
-			$(document).on('change', id_origen, function() {
-				
+			$(document).on('change', id_origen, function(event, cambioMunicipio) {
+
 				var url="{{action('Municipio_MunicipioController@getMunicipios')}}"+"/"+$(this).val();
 				
 				$.getJSON(url, function( data ) {
@@ -30,7 +30,11 @@
 						first=false;
 						$(id_destino).val(defecto);
 					}
-				});
+
+                    if(typeof cambioMunicipio !== "undefined")
+                        $(id_destino).val(cambioMunicipio);
+
+                });
 			});
 			/*if(valorOrigen!="") {
 				$(id_origen).trigger('change');	

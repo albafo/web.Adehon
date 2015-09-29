@@ -3,7 +3,6 @@
 class Usuario_DocenteController extends \BaseController {
 	
 	public function getIndex() {
-		
 	}
 	
 	public function getFichaDocente($id){
@@ -135,5 +134,104 @@ class Usuario_DocenteController extends \BaseController {
 		$return['recordsFiltered']=$claveFinal+1;
 		return $return;
 	}
-	
+
+
+    public function getConsultaDni()
+    {
+        $dni = $_GET["dni"];
+        $usuario = Usuario::whereDni($dni)->first();
+
+        $result['tipo_usuario'] = "no-usuario";
+
+        if($usuario) {
+            $result['tipo_usuario'] = "no-docente";
+            $result['usuario'] = $usuario;
+            $docente = Docente::whereUsuarioId($usuario->id)->first();
+            if($docente) {
+                $result['tipo_usuario'] = "docente";
+                $result['usuario'] = $docente;
+            }
+        }
+
+        return $result;
+
+    }
+
+    public function getNuevo()
+    {
+
+        $provincias=new Provincia;
+
+        $estudios=Estudio::all();
+        $titulos=Titulacion::all();
+        $estudiosArr=null;
+        foreach($estudios as $estudio) {
+            $estudiosArr[$estudio->id]=$estudio->nombre;
+        }
+        $titulosArr=array();
+        foreach($titulos as $titulo) {
+            $titulosArr[$titulo->id]=$titulo->nombre;
+        }
+
+
+        $carnetsP=Funcion::where('grupo_id', '=', 2)->get();
+        $idiomas=Funcion::where('grupo_id', '=', 4)->get();
+        $informatica=Funcion::where('grupo_id', '=', 5)->get();
+
+        $areas=AreasEmpleo::vector();
+        return View::make("docente.nuevo", array( 'areas'=>$areas,  'informatica'=>$informatica,  'idiomas'=>$idiomas, 'carnetsP'=>$carnetsP,  'titulos'=>$titulosArr, 'estudios'=>$estudiosArr,  'provincias'=>$provincias->arraySelect()));
+    }
+
+    public function postNuevo()
+    {
+        $usuario = new Usuario();
+        if (Input::get("tipoUsuario") == "no-usuario") {
+
+
+            foreach (Input::get('usuario') as $index => $value) {
+
+                $usuario->$index = $value;
+            }
+
+            $usuario->save();
+        }
+
+        if (Input::get("tipoUsuario") == "no-docente") {
+            $usuario = Usuario::find(Input::get("usuarioId"));
+        }
+
+
+        $docente = new Docente();
+
+        $docente->usuarios()->associate($usuario);
+
+        $docente->save();
+
+        return Redirect::to("docente/ficha-docente/".$docente->id);
+
+
+
+    }
+
+    public function postFichaDocente($docenteID)
+    {
+        $docente = Docente::find($docenteID);
+
+        $data = $_POST;
+        foreach ($data as $index=>$value) {
+            if ($index == "field_eval_ini_fecha" || $index == "field_eval_situ_fecha" || $index == "field_eval_fin_fecha")
+                $data[$index] = DateSql::changeToSql($value);
+        }
+
+        $this->saveCRUDForm($docente, $data);
+
+        return Redirect::back()->withOk("Ficha modificada con éxito");
+    }
+
+    /**
+     * @param $modelObject
+     */
+
+
+
 }

@@ -36,6 +36,14 @@ class Demandante extends Eloquent {
 	public function usuarios() {
 		return $this->belongsTo('Usuario', 'usuario_id');
 	}
+
+    public function areaEmpleo() {
+        return $this->belongsTo('AreasEmpleo', 'areaEmpleo_id');
+    }
+
+    public function subareaEmpleo() {
+        return $this->belongsTo('SubareaEmpleo', 'subareaEmpleo_id');
+    }
 	
 	public function getOfertasComp() {
 		return Oferta::where('area_empleo', '=', $this->areaEmpleo_id)->get();
@@ -152,7 +160,19 @@ class Demandante extends Eloquent {
 		return $porcFinal;
 		
 	}
-	
-	
-	
+
+    public static function find($id, $columns = array('*')){
+        $alumno=Demandante::leftJoin('usuarios', function($join)
+        {
+            $join->on('usuarios.id', '=', 'demandantes.usuario_id');
+        })->where('demandantes.id', '=', $id)->select('*','usuarios.id as id_usuario', 'demandantes.id as id_demandante', 'demandantes.id as id')
+            ->get();
+        if(isset($alumno[0])) {
+            return $alumno[0];
+        }
+        else return null;
+    }
+
+
+
 }

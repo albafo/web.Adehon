@@ -256,4 +256,20 @@ class BaseController extends Controller  {
 		print_r($last_query);
 	}
 
+    public function saveCRUDForm($modelObject, $data)
+    {
+        foreach ($data as $index => $value) {
+
+
+            $indexParts = explode("field_", $index);
+            if (isset($indexParts[1])) {
+                $index = $indexParts[1];
+
+            }
+
+            $modelObject->$index = $value;
+        }
+        $modelObject->save();
+    }
+
 }

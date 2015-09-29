@@ -42,6 +42,12 @@
 			 <span class="hidden-xs">Cursos</span>
 		</a>
 	</li>
+    <li>
+        <a href="#proveedor" data-toggle="tab">
+            <span class="visible-xs"><i class="fa-user"></i></span>
+            <span class="hidden-xs">Proveedor</span>
+        </a>
+    </li>
 </ul>
 <div class="tab-content">
 	<div class="tab-pane active" id="ficha">
@@ -131,6 +137,7 @@
 	<div class="tab-pane" id="cursos">
 		Cursos
 	</div>
+    @include('empresa.tab-proveedor')
 
 </div>
 

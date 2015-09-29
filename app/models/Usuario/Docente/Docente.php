@@ -88,6 +88,11 @@ class Docente extends Eloquent {
 	public function cursos() {
 		return $this->belongsToMany('Curso', 'cursos_docentes');
 	}
+
+    public function formacionComplementaria()
+    {
+        return $this->hasMany("Usuario_Docente_FormacionComplementaria", "docente_id");
+    }
 	
 	
 	

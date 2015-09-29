@@ -99,8 +99,8 @@
 @stop
 @section('css_js_page')
 	{{ HTML::style('assets/js/datatables/dataTables.bootstrap.css') }}
-	
-		
+
+
 	{{ HTML::script('assets/js/datatables/js/jquery.dataTables.min.js') }}
 	{{ HTML::script('assets/js/datatables/dataTables.bootstrap.js') }}
 	{{ HTML::script('assets/js/datatables/yadcf/jquery.dataTables.yadcf.js') }}

@@ -21,8 +21,12 @@
 			"app/database/seeds",
 			"app/tests/TestCase.php",
 			"app/biblioteca"
-		]
+		],
+        "psr-0": {
+          "Biblioteca": "app/biblioteca"
+        }
 	},
+
 	"scripts": {
 		"post-install-cmd": [
 			"php artisan clear-compiled",
