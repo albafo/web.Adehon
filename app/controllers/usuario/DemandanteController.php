@@ -24,9 +24,19 @@ class Usuario_DemandanteController extends \BaseController {
 		foreach($titulosReg as $titulo) {
 			$titulosArrReg[]=$titulo->id;
 		}
-		$carnetsP=Funcion::where('grupo_id', '=', 2)->get();
-		$idiomas=Funcion::where('grupo_id', '=', 4)->get();
-		$informatica=Funcion::where('grupo_id', '=', 5)->get();
+		$carnetsP=array();
+        foreach($data->funciones()->where('grupo_id', '=', 2)->get() as $value)
+        {
+            $carnetsP[] = $value->id;
+        }
+
+		$idiomas=array();
+        foreach($data->funciones()->where('grupo_id', '=', 4)->get() as $value) {
+            $idiomas[] = $value->id;
+        }
+		$informatica=array();
+        foreach($data->funciones()->where('grupo_id', '=', 5)->get() as $value)
+            $informatica[] = $value->id;
 		$funcionesUser=$data->usuarios->funciones;
         $funcionesArrReg = array();
 		foreach($funcionesUser as $funcion){
@@ -46,6 +56,7 @@ class Usuario_DemandanteController extends \BaseController {
         $demandante = Demandante::find($id);
         $data = $_POST;
         $funciones = array();
+        $funcionesToDetach = array();
         foreach($data as $index => $value)
         {
             if($index == "field_funciones")
@@ -53,6 +64,7 @@ class Usuario_DemandanteController extends \BaseController {
                 foreach($value as $grupoFuncion => $valoresFuncion) {
                     foreach($valoresFuncion as $valorFuncion) {
 
+                        $funcionesToDetach[$grupoFuncion] = $valorFuncion;
                         if ($valorFuncion != "multi-dummy")
                             $funciones[$grupoFuncion] = $valorFuncion;
 
@@ -62,22 +74,21 @@ class Usuario_DemandanteController extends \BaseController {
         }
 
 
-        foreach($funciones as $grupoFuncion => $value) {
+        foreach($funcionesToDetach as $grupoFuncion => $value) {
 
-            $funciones = Funcion::whereGrupoId($grupoFuncion)->get();
+            $funcionesToDetach = Funcion::whereGrupoId($grupoFuncion)->get();
 
-            foreach ($funciones as $funcionId) {
+            foreach ($funcionesToDetach as $funcionId) {
 
                 $demandante->funciones()->detach($funcionId);
             }
         }
-
         foreach($funciones as $grupoFuncion => $value) {
             $demandante->funciones()->attach($value);
         }
         unset($data["field_funciones"]);
         $this->saveCRUDForm($demandante, $data);
-        return Redirect::to("demandante/ficha-demandante/$id#curriculum");
+        return Redirect::to("demandante/ficha-demandante/$id#curriculum")->withOk("Ok!", "Modificado con éxito");
     }
 	
 	public function getModificarDemandante($id) {

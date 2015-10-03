@@ -120,7 +120,7 @@ class Renderer {
      * @param array $extraParams
      * @return string
      */
-    public static function generateCRUDform($model, $id, $showFields, $fieldsNames = array(), $selectsOptions = array(), $extraParams = array())
+    public static function generateCRUDform($model, $id, $showFields, $fieldsNames = array(), $selectsOptions = array(), $extraParams = array(), $defaultValues = array())
     {
         $renderer = new Renderer();
         $modelObject = $model::find($id);
@@ -154,7 +154,7 @@ class Renderer {
         $result = "<form $htmlParams>";
 
 
-        $result .= $renderer->generate2columnsFormContent($showFields, $modelObject, $fieldsNames, $selectsOptions);
+        $result .= $renderer->generate2columnsFormContent($showFields, $modelObject, $fieldsNames, $selectsOptions, $defaultValues);
 
 
         $result .= "<div class='row form-group text-center'>
@@ -168,7 +168,7 @@ class Renderer {
         return $result;
     }
 
-    protected function generateGroupForm($name, $group, $fieldPares, $modelObject, $columns, $fieldsNames, $selectsOptions)
+    protected function generateGroupForm($name, $group, $fieldPares, $modelObject, $columns, $fieldsNames, $selectsOptions, $defaultValues = array())
     {
         $result = "";
 
@@ -178,13 +178,13 @@ class Renderer {
 
         $result .=  "<div class='form-group'>$columns</div>";
         $result .= "<div class='col-md-12'><fieldset><legend>$name</legend>";
-        $result .= $this->generate2columnsFormContent($group, $modelObject, $fieldsNames, $selectsOptions);
+        $result .= $this->generate2columnsFormContent($group, $modelObject, $fieldsNames, $selectsOptions, $defaultValues);
         $result .= "</fieldset></div>";
         return $result;
 
     }
 
-    protected function generate2columnsFormContent($showFields, $modelObject, $fieldsNames, $selectsOptions)
+    protected function generate2columnsFormContent($showFields, $modelObject, $fieldsNames, $selectsOptions, $defaultValues=array())
     {
 
         $result = "";
@@ -198,7 +198,7 @@ class Renderer {
             $options = array();
 
             if(is_array($type)) {
-                $result .= $this->generateGroupForm($field, $type, $fieldPares, $modelObject, $columns, $fieldsNames, $selectsOptions);
+                $result .= $this->generateGroupForm($field, $type, $fieldPares, $modelObject, $columns, $fieldsNames, $selectsOptions, $defaultValues);
                 $fieldPares = 0;
 
             }
@@ -210,11 +210,15 @@ class Renderer {
                 if (isset($selectsOptions[$field]))
                     $options = $selectsOptions[$field];
 
+                $defaultValue = $modelObject->$field;
+                if(isset($defaultValues[$field]))
+                    $defaultValue = $defaultValues[$field];
+
                 $inputName = $this->generateInputName($field);
                 $columns .= "<div class='col-md-6'>
                                 <label class='col-md-4 control-label' style='padding: 0px;' for='field_".self::generateInputId($field)."'>{$fieldsNames[$field]}:</label>
                                 <div class='col-md-8'>
-                                " . $this->getInputFromType($type, self::generateInputName($field), $modelObject->$field, $options) . "
+                                " . $this->getInputFromType($type, self::generateInputName($field), $defaultValue, $options) . "
                                 </div>
                             </div>";
                 $fieldPares++;
@@ -353,11 +357,12 @@ class Renderer {
     {
         $extraParams["class"][] = "form-control";
 
-        if(is_array($defaultValue))
-            $defaultValue = implode(",", $defaultValue);
+        $dataValues = "";
+        if(is_array($defaultValue)) {
+            $dataValues = implode(",", $defaultValue);
+        }
 
-
-        $extraParams["data-value"][] = $defaultValue;
+        $extraParams["data-value"][] = $dataValues;
 
         $htmlParams = $this->generateHtmlParams($extraParams);
 
@@ -368,7 +373,7 @@ class Renderer {
         foreach($selectOptions as $value => $name)
         {
             $selected = "";
-            if($value == $defaultValue)
+            if((is_array($defaultValue) && in_array($value, $defaultValue)) || (!is_array($defaultValue) && $value == $defaultValue))
                 $selected = "selected";
             $options .= "<option value='$value' $selected>$name</option>";
         }

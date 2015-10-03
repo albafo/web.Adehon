@@ -31,9 +31,27 @@
             'funciones[2][]' => Renderer::getSelectOptionsArray("Funcion", "id", "nombre", "grupo_id=2"),
             'funciones[4][]' => Renderer::getSelectOptionsArray("Funcion", "id", "nombre", "grupo_id=4"),
             'funciones[5][]' => Renderer::getSelectOptionsArray("Funcion", "id", "nombre", "grupo_id=5"),
-
+        ),
+        array(),
+        array(
+            'funciones[2][]' => $carnetsP,
+            'funciones[4][]' => $idiomas,
+            'funciones[5][]' => $informatica
         )
+
     )}}
+
+            {{Renderer::generateAjaxListFromRelation("Experiencias laborales",
+                $data, "trabajos",
+                array(
+                    "puesto_trabajo" => Renderer::INPUT_TEXT,
+                    "areaEmpleo_id" => Renderer::SELECT2,
+                    "subareaEmpleo_id" => Renderer::SELECT2,
+                    "empresa" => Renderer::INPUT_TEXT,
+                    "anyo_inicio" => Renderer::INPUT_DATE,
+                    "anyo_final" => Renderer::INPUT_DATE
+                )
+            )}}
         </div>
     </div>
 </div>
@@ -103,9 +121,7 @@
                         <label class="col-md-4 control-label" for="carnet_profesional">Carnet Profesional:</label>
                         <div class="col-md-8">
                             <select name="funciones[2]" multiple="multiple" id="carnet_profesional" class="form-control">
-                                @foreach ($carnetsP as $funcion)
-                                    <option value="{{{$funcion->id}}}" @if(in_array($funcion->id, $funcionesUser)) selected="selected" @endif>{{{$funcion->nombre}}}</option>
-                                @endforeach
+
                             </select>
                         </div>
                     </div>
@@ -113,9 +129,7 @@
                         <label class="col-md-4 control-label" for="idiomas">Idiomas:</label>
                         <div class="col-md-8">
                             <select name="funciones[4]" multiple="multiple" id="idiomas" class="form-control">
-                                @foreach ($idiomas as $funcion)
-                                    <option value="{{{$funcion->id}}}" @if(in_array($funcion->id, $funcionesUser)) selected="selected" @endif>{{{$funcion->nombre}}}</option>
-                                @endforeach
+
                             </select>
                         </div>
                     </div>
@@ -139,9 +153,7 @@
                         <label class="col-md-4 control-label" for="informatica">Informática:</label>
                         <div class="col-md-8">
                             <select name="funciones[5]" multiple="multiple" id="informatica" class="form-control">
-                                @foreach ($informatica as $funcion)
-                                    <option value="{{{$funcion->id}}}" @if(in_array($funcion->id, $funcionesUser)) selected="selected" @endif>{{{$funcion->nombre}}}</option>
-                                @endforeach
+
                             </select>
                         </div>
                     </div>

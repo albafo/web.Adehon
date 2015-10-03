@@ -178,6 +178,12 @@ class Demandante extends Eloquent {
         return $this->belongsToMany('Funcion', 'funciones_demandantes', 'demandante_id', 'funcion_id');
     }
 
+	public function trabajos()
+	{
+		return $this->hasMany('Usuario_TrabajoDemandante', 'demandante_id');
+
+	}
+
 
 
 }
