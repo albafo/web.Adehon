@@ -269,6 +269,7 @@ class BaseController extends Controller  {
 
             $modelObject->$index = $value;
         }
+
         $modelObject->save();
     }
 

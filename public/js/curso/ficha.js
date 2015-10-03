@@ -7,7 +7,6 @@ $(function() {
         var form = $(this);
         $('#CursoEvaluacionForm input[type=checkbox]').each(function()
         {
-
             if($(this).prop('checked')) {
                 form.append('<input type="hidden" name="'+$(this).attr('name')+'" value="1">');
             }
@@ -22,13 +21,11 @@ $(function() {
         var form = $(this);
         $('#CursoRevisionForm input[type=checkbox]').each(function()
         {
-
             if($(this).prop('checked')) {
                 form.append('<input type="hidden" name="'+$(this).attr('name')+'" value="1">');
             }
             else form.append('<input type="hidden" name="'+$(this).attr('name')+'" value="0">');
             $(this).remove();
-
         });
         return true;
     });

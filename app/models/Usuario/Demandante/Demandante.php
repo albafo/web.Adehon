@@ -161,7 +161,7 @@ class Demandante extends Eloquent {
 		
 	}
 
-    public static function find($id, $columns = array('*')){
+    /*public static function find($id, $columns = array('*')){
         $alumno=Demandante::leftJoin('usuarios', function($join)
         {
             $join->on('usuarios.id', '=', 'demandantes.usuario_id');
@@ -171,6 +171,11 @@ class Demandante extends Eloquent {
             return $alumno[0];
         }
         else return null;
+    }*/
+
+    public function funciones()
+    {
+        return $this->belongsToMany('Funcion', 'funciones_demandantes', 'demandante_id', 'funcion_id');
     }
 
 

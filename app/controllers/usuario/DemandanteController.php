@@ -38,9 +38,47 @@ class Usuario_DemandanteController extends \BaseController {
 		
  		return View::make('demandante/ficha', array('data'=>$data, 'areas'=>$areas, 'subareas'=>$subareas, 'trabajosUser'=>$trabajosUser, 'informatica'=>$informatica, 'funcionesUser'=>$funcionesArrReg, 'idiomas'=>$idiomas, 'carnetsP'=>$carnetsP, 'titulosReg'=>$titulosArrReg, 'titulos'=>$titulosArr, 'estudios'=>$estudiosArr, 'id_estudio'=>$id_est, 'provincias'=>$provincias->arraySelect(), 'municipios'=>$municipios->municipiosProvincia($data->usuarios->provincia_id)));
 		
-	
-		
 	}
+
+    public function postFichaDemandante($id)
+    {
+
+        $demandante = Demandante::find($id);
+        $data = $_POST;
+        $funciones = array();
+        foreach($data as $index => $value)
+        {
+            if($index == "field_funciones")
+            {
+                foreach($value as $grupoFuncion => $valoresFuncion) {
+                    foreach($valoresFuncion as $valorFuncion) {
+
+                        if ($valorFuncion != "multi-dummy")
+                            $funciones[$grupoFuncion] = $valorFuncion;
+
+                    }
+                }
+            }
+        }
+
+
+        foreach($funciones as $grupoFuncion => $value) {
+
+            $funciones = Funcion::whereGrupoId($grupoFuncion)->get();
+
+            foreach ($funciones as $funcionId) {
+
+                $demandante->funciones()->detach($funcionId);
+            }
+        }
+
+        foreach($funciones as $grupoFuncion => $value) {
+            $demandante->funciones()->attach($value);
+        }
+        unset($data["field_funciones"]);
+        $this->saveCRUDForm($demandante, $data);
+        return Redirect::to("demandante/ficha-demandante/$id#curriculum");
+    }
 	
 	public function getModificarDemandante($id) {
 		$data_user=Input::get('usuario');	
@@ -79,6 +117,7 @@ class Usuario_DemandanteController extends \BaseController {
 		$demandante=Demandante::find($id);
 		$ofertas=$demandante->getOfertasComp();
 		$i=0;
+        $return = array();
 		foreach($ofertas as $oferta){
 			$return[$i]['DT_RowId']='row_'.$oferta->id;
 			$return[$i]['compatibilidad']=$demandante->getCompOferta($oferta).'%';
