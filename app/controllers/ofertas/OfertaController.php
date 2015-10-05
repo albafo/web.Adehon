@@ -177,6 +177,32 @@ class Ofertas_OfertaController extends \BaseController {
 		
 		return "ok";
 	}
+
+	public function postFichaOferta($id)
+	{
+		if(Input::has("field_nueva_inscripcion")) {
+			$oferta = Oferta::find($id);
+			$oferta->inscritos()->attach(
+				array(
+					Input::get("field_demandante_id") => array(
+						'created_at' => DateSql::changeToSql(Input::get("field_created_at")),
+						'estado' => Input::get("field_estado")
+					)
+				)
+			);
+			return Redirect::back()->withOk("Inscrito añadido con éxito a la oferta");
+		}
+	}
+
+	public function getCambioInscritos($ofertaId, $demandanteId)
+	{
+		$attributes = array();
+		foreach(Input::all() as $index=>$value)
+		{
+			$attributes[$index] = $value;
+		}
+			Oferta::find($ofertaId)->inscritos()->updateExistingPivot($demandanteId, $attributes);
+	}
 	
 	
 }

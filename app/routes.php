@@ -35,5 +35,6 @@ Route::controller('/error', 'ErrorController');
 Route::controller('/titulacion', 'Titulacion_TitulacionController');
 
 Route::controller('/ajax-list', 'AjaxListController');
+Route::controller('/xml', 'Xml_XmlController');
 
 

@@ -264,12 +264,20 @@ class BaseController extends Controller  {
             $indexParts = explode("field_", $index);
             if (isset($indexParts[1])) {
                 $index = $indexParts[1];
-
             }
+
+			if(is_array($value)) {
+				$array = $value;
+				$value = array();
+				foreach($array as $valueArray) {
+					if($valueArray != "multi-dummy")
+						$value[] = $valueArray;
+				}
+				$value = implode("," ,$value);
+			}
 
             $modelObject->$index = $value;
         }
-
         $modelObject->save();
     }
 

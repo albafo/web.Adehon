@@ -38,6 +38,11 @@
 			<span class="hidden-md">Currículum</span> </a>
 	</li>
 	<li>
+		<a href="#sepe" data-toggle="tab">
+			<span class="visible-md"><i class="fa-home"></i></span>
+			<span class="hidden-md">SEPE y otros datos</span> </a>
+	</li>
+	<li>
 		<a href="#ofertas" data-toggle="tab">
 			<span class="visible-md"><i class="fa-home"></i></span>
 			<span class="hidden-md">Ofertas interesantes</span> </a>
@@ -49,6 +54,7 @@
 	
 	@include("demandante.tab-datos")
     @include("demandante.tab-cv")
+	@include("demandante.tab-sepe")
 
 
 

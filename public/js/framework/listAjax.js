@@ -2,7 +2,7 @@
  * Created by alvarobanofos on 18/09/15.
  */
 
-$('body').on('change', '.ajaxList input, .ajaxList textarea', function() {
+$('body').on('change', '.ajaxList input, .ajaxList textarea, .ajaxList select', function() {
     var dataId = $(this).parents('tr').attr('data-id');
     var urlController = $(this).parents('table[data-parent-id]').attr('data-controller');
     var urlParams = $(this).parents('table[data-parent-id]').attr('data-params');

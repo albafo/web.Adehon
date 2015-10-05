@@ -87,8 +87,11 @@ class Usuario_DemandanteController extends \BaseController {
             $demandante->funciones()->attach($value);
         }
         unset($data["field_funciones"]);
+
+        if(isset($data["field_fecha_sepe"]))
+            $data["field_fecha_sepe"] = DateSql::changeToSql($data["field_fecha_sepe"]);
         $this->saveCRUDForm($demandante, $data);
-        return Redirect::to("demandante/ficha-demandante/$id#curriculum")->withOk("Ok!", "Modificado con éxito");
+        return Redirect::back()->withOk("Ficha modificada con éxito");
     }
 	
 	public function getModificarDemandante($id) {
@@ -269,5 +272,27 @@ class Usuario_DemandanteController extends \BaseController {
         return $return;
 
     }
+
+    public function getAjax()
+    {
+        $findQuery = Input::get("q");
+        $demandantes = Demandante::join("usuarios", "demandantes.usuario_id", "=", "usuarios.id")
+            ->where(function($query) use ($findQuery) {
+                $partsFindQuery = explode(" ", $findQuery);
+                foreach($partsFindQuery as $findPart)
+                    $query->orWhere("usuarios.nombre", "LIKE", "%$findPart%")
+                        ->orWhere("usuarios.apellidos", "LIKE", "%$findPart%")
+                        ->orWhere("usuarios.dni", "LIKE", "%$findPart%");
+            })->select("demandantes.id", "usuarios.nombre", "usuarios.apellidos", "usuarios.dni")->limit(50)->get();
+
+        $data["items"] = array();
+        foreach($demandantes as $demandante) {
+            $item["id"] = $demandante->id;
+            $item["text"] = $demandante->nombre." ".$demandante->apellidos." - ".$demandante->dni;
+            $data["items"][] = $item;
+        }
+        return $data;
+    }
+
 }
 	

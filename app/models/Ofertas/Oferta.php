@@ -140,6 +140,12 @@ class Oferta extends Eloquent {
 	public function candidatos() {
 		 return $this->belongsToMany('Usuario');
 	}
+
+	public function inscritos()
+	{
+		return $this->belongsToMany('Demandante')->withPivot("estado", "created_at");
+
+	}
 	
 	public function municipio() {
 		return $this->belongsTo('Municipio');

@@ -38,6 +38,16 @@
 			<span class="visible-md"><i class="fa-home"></i></span>
 			<span class="hidden-md">Requerimientos</span> </a>
 	</li>
+	<li>
+		<a href="#inscritos" data-toggle="tab">
+			<span class="visible-md"><i class="fa-home"></i></span>
+			<span class="hidden-md">Inscritos</span> </a>
+	</li>
+	<li>
+		<a href="#colocados" data-toggle="tab">
+			<span class="visible-md"><i class="fa-home"></i></span>
+			<span class="hidden-md">Colocados</span> </a>
+	</li>
 </ul>
 <div class="tab-content">
 	
@@ -376,6 +386,8 @@
 			</div>
 		</div>
 	</div>
+	@include("oferta.tab-inscritos")
+	@include("oferta.tab-colocados")
 </div>
 <script>
 $(function() {

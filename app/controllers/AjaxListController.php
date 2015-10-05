@@ -22,7 +22,7 @@ class AjaxListController extends BaseController
         if(!($tableParams = Session::get($renderer::PREFIX_SESSION_AJAX_LIST.$_GET["listToken"])))
             $result = "<span>Error al actualizar tabla, por favor, recargue la página</span>";
         else {
-            $result = $renderer->generateAjaxListFromRelation($tableParams[0], $tableParams[1], $tableParams[2], $tableParams[3], $tableParams[4]);
+            $result = $renderer->generateAjaxListFromRelation($tableParams[0], $tableParams[1], $tableParams[2], $tableParams[3], $tableParams[4], $tableParams[5]);
 
         }
         return json_encode($result);

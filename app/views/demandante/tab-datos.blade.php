@@ -12,6 +12,15 @@
                             <input type="text" class="form-control" id="usuario[dni]" name="usuario[dni]"  value="{{{$data->usuarios->dni}}}">
                         </div>
                     </div>
+                    <div class="col-md-6">
+                        <label class="col-md-4 control-label" for="usuario[sexo]"><span class="red">*</span> Sexo:</label>
+                        <div class="col-md-8">
+                            <select class="form-control" id="usuario[sexo]" name="usuario[sexo]">
+                                <option value="1" <?php if($data->usuarios->sexo==1):?> selected<?php endif;?> >Masculino</option>
+                                <option value="2" <?php if($data->usuarios->sexo==2):?> selected<?php endif;?>>Femenino</option>
+                            </select>
+                        </div>
+                    </div>
                 </div>
                 <div class="row form-group">
                     <div class="col-md-6">
