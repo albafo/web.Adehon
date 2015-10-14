@@ -125,7 +125,7 @@
 </li>
 
 <li>
-	<a href="tables-basic.html">
+	<a href="{{{url('documentos')}}}">
 		<i class="fa-file"></i>
 		<span class="title">Documentos e informes</span>
 	</a>

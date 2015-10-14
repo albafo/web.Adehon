@@ -36,5 +36,9 @@ Route::controller('/titulacion', 'Titulacion_TitulacionController');
 
 Route::controller('/ajax-list', 'AjaxListController');
 Route::controller('/xml', 'Xml_XmlController');
+Route::controller('/documentos', 'Documentos_DocumentosController');
+Route::controller('/importer', 'Importer_ImporterController');
+
+
 
 

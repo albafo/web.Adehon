@@ -12,10 +12,10 @@
 
 		<ol class="breadcrumb bc-1">
 			<li>
-				<a href="http://localhost/proyectosEclipse/adehon/public/gestor"><i class="fa-home"></i>Gestor</a>
+				<a href="{{{url('gestor')}}}"><i class="fa-home"></i>Gestor</a>
 			</li>
 			<li>
-				<a href="http://localhost/proyectosEclipse/adehon/public/gestor/empresas">Empresas</a>
+				<a href="{{{url('gestor/empresas')}}}">Empresas</a>
 			</li>
 			<li class="active">
 				<strong>{{{$data->razon_social}}}</strong>
@@ -50,11 +50,11 @@
     </li>
 </ul>
 <div class="tab-content">
-	<div class="tab-pane active" id="ficha">
+        <div class="tab-pane active" id="ficha">
 
-		<div class="panel panel-default panel-border">
+            <div class="panel panel-default panel-border">
 
-			<div class="panel-body">
+                <div class="panel-body">
 				<form role="form" class="form-horizontal" id="formEmpresa">
 					<div class="form-group col-xs-6">
 						<label class="col-xs-3 control-label" for="cif">NIF/CIF:</label>
@@ -131,12 +131,10 @@
 			</div>
 		</div>
 	</div>
-	<div class="tab-pane" id="ofertas">
-		Ofertas
-	</div>
-	<div class="tab-pane" id="cursos">
-		Cursos
-	</div>
+    @include('empresa.tab-ofertas')
+
+    @include('empresa.tab-cursos')
+
     @include('empresa.tab-proveedor')
 
 </div>

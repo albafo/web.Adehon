@@ -302,11 +302,11 @@ class Empresa_EmpresaController extends \BaseController {
 		}
 		if($_GET['search']['value']!='') {
 			
-			$empresas=$empresa->searchDT($_GET['columns'], $_GET['search']['value'])->orderBy($_GET['columns'][$_GET['order'][0]['column']]['data'], $_GET['order'][0]['dir'])->skip($_GET['start']*$_GET['length'])->take($_GET['length'])->get();
-			$count=$empresa->searchDT($_GET['columns'], $_GET['search']['value'])->orderBy($_GET['columns'][$_GET['order'][0]['column']]['data'], $_GET['order'][0]['dir'])->skip($_GET['start']*$_GET['length'])->take($_GET['length'])->count();
+			$empresas=$empresa->searchDT($_GET['columns'], $_GET['search']['value'])->orderBy($_GET['columns'][$_GET['order'][0]['column']]['data'], $_GET['order'][0]['dir'])->skip($_GET['start'])->take($_GET['length'])->get();
+			$count=$empresa->searchDT($_GET['columns'], $_GET['search']['value'])->orderBy($_GET['columns'][$_GET['order'][0]['column']]['data'], $_GET['order'][0]['dir'])->skip($_GET['start'])->take($_GET['length'])->count();
 		}
 		else{
-			$empresas=$empresa->orderBy($_GET['columns'][$_GET['order'][0]['column']]['data'], $_GET['order'][0]['dir'])->skip($_GET['start']*$_GET['length'])->take($_GET['length'])->get();
+			$empresas=$empresa->orderBy($_GET['columns'][$_GET['order'][0]['column']]['data'], $_GET['order'][0]['dir'])->skip($_GET['start'])->take($_GET['length'])->get();
 			$count=$empresa->count();
 		}
 		

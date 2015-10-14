@@ -70,7 +70,9 @@ class Curso_CursoController extends \BaseController {
 		}
 		$data['fecha_inicio']=DateSql::changeToSql($data['fecha_inicio']);
 		$data['fecha_final']=DateSql::changeToSql($data['fecha_final']);
-		
+        $data["oculto"] = 0;
+		if(Input::has("oculto"))
+            $data["oculto"] = 1;
 		$curso->fill($data);
 		$curso->save();
 		return "ok";
@@ -179,8 +181,15 @@ class Curso_CursoController extends \BaseController {
 		//$this->lastSQL();
 		return View::make('curso/fichaAlumno', array('data'=>$data, 'alumno'=>$alumno));
 	}
-	
-	public function getFichaDocente($id) {
+
+    public function getPerfilAlumno($id)
+    {
+        $data=Curso::cursoAlumno($id);
+        return Redirect::to("alumno/ficha/".$data->alumno_id);
+    }
+
+
+    public function getFichaDocente($id) {
 		$data=Curso::cursoDocente($id);
 		$docente=Docente::find($data->docente_id);
 		//$this->lastSQL();

@@ -53,7 +53,6 @@ class Empresa extends Eloquent {
 		
 	use SoftDeletingTrait;
 	
-	protected $fillable = array('cif', 'razon_social', 'telefono', 'fax', 'direccion', 'representante', 'observaciones', 'provincia_id', 'municipio_id', 'cod_postal', 'email', 'password', 'cod_verif');
 	protected $guarded = array('id');
 	protected $hidden = array('password');
 	protected $dates=['deleted_at'];
@@ -82,6 +81,11 @@ class Empresa extends Eloquent {
 	public function ofertas() {
 			return $this->hasMany('Oferta');
 	}
+
+    public function cursos() {
+
+        return $this->hasMany('Curso', 'entidad_solicitante', 'id');
+    }
 	
 	public function provincia() {
 			return $this->belongsTo('Provincia');

@@ -84,6 +84,16 @@
 
                         <div class="form-group">
                             <div class="col-md-6">
+                                <label class="col-md-3 control-label " for="ocultar">Ocultar:</label>
+                                <div class="col-md-9">
+                                    <input type="checkbox" class="form-control cbr" id="ocultar" name="oculto" <?= $data->oculto?"checked":"" ?> >
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-6">
                                 <label class="col-md-3 control-label" for="cod_interno"><span class="red">*</span> Código interno:</label>
                                 <div class="col-md-9">
                                     <input type="text" class="form-control" id="cod_interno" name="cod_interno"  value="{{{$data->cod_interno}}}">
@@ -371,19 +381,18 @@
                 </div>
                 <div class="form-group"></div>
             </form>
-            <table id="listado_alumnos_curso" class="table table-striped table-bordered listados" cellspacing="0" width="100%">
+            <table id="listado_alumnos_curso" class="table table-striped table-bordered" cellspacing="0" width="100%">
                 <thead>
                 <tr>
-                    <th>Nº Expediente</th>
-                    <th>NIF</th>
-                    <th>Nombre</th>
-                    <th>Apellidos</th>
-                    <th>Fecha alta</th>
-                    <th>Fecha baja</th>
-                    <th>Nota</th>
-                    <th>Nota conducta</th>
-                    <th>Resultado</th>
-                    <th>Empresa</th>
+                    <th width="12%">Nº Expediente</th>
+                    <th width="13%">NIF</th>
+                    <th width="13%">Nombre</th>
+                    <th width="13%">Apellidos</th>
+                    <th width="12%">Nota</th>
+                    <th width="12%">Nota conducta</th>
+                    <th width="12%">Resultado</th>
+                    <th width="13%">Empresa</th>
+                    <th width="12%">Perfil</th>
                 </tr>
                 </thead>
             </table>
@@ -966,11 +975,23 @@
             $('#listado_alumnos_curso').dataTable( {
                 "initComplete": function () {
 
-                    $('#listado_alumnos_curso tr').click( function () {
+                    $('#listado_alumnos_curso tr').click( function (e) {
+
+
+
                         var id=$(this).attr('id');
                         id=id.split('_');
                         id=id[1];
                         window.location.href = '{{{action('Curso_CursoController@getFichaAlumno')}}}/'+id;
+                    });
+
+                    $('body').on('click', '.perfilAlumno', function (e) {
+                        e.stopPropagation();
+                        var id=$(this).parents('tr').attr('id');
+                        id=id.split('_');
+                        id=id[1];
+
+                        window.location.href = '{{{action('Curso_CursoController@getPerfilAlumno')}}}/'+id;
                     });
                 },
                 "pageLength": {{{$data->max_alumnos or 10}}},
@@ -982,8 +1003,6 @@
                     { "data": "dni" },
                     { "data": "nombre" },
                     { "data": "apellidos" },
-                    { "data": "fecha_alta" },
-                    { "data": "fecha_baja" },
                     { "data": "nota" },
                     { "data": "nota_conducta" },
                     { "data": "resultado" },
@@ -991,8 +1010,14 @@
 
 
 
-                ]
-            });
+                ],
+                "columnDefs": [ {
+                    "targets": 8,
+                    "data": null,
+                    "defaultContent": "<a href='#' class='perfilAlumno'><i class='linecons-user'></i></a>"
+                } ]
+
+        });
 
             $('#listado_docentes_curso').dataTable( {
                 "initComplete": function () {

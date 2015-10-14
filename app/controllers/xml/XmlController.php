@@ -11,8 +11,10 @@ class Xml_XmlController extends BaseController
 
     const COD_AGENCIA = 1000000048;
 
-    public function getMesSepe($mes, $anyo)
+    public function postMesSepe()
     {
+        $mes = Input::get("mes");
+        $anyo = Input::get("anyo");
         $mes = sprintf("%02s", $mes);
         $mesInicial = "$anyo-$mes-1";
         $diasMes = date("t", strtotime($mesInicial));
@@ -37,6 +39,8 @@ class Xml_XmlController extends BaseController
             $trabajador["discapacidad"] = $discapacidad;
             $trabajador["inmigrante"] = ($demandante->inmigrante)?"S":"N";
             $trabajador["colocacion"] = "N";
+
+
             $dataToView["acciones"][] = $trabajador;
         }
 

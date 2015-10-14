@@ -14,7 +14,7 @@
 
                 array(
                     "demandante_id" => "Demandante de empleo",
-                    "created_at" => "Fecha de inscripción",
+                    "created_at" => "Fecha de inscripciÃ³n",
                     "estado" => "Estado"
                 ),
                 array(
@@ -28,7 +28,8 @@
                 ),
                 array(),
                 array(
-                    "nueva_inscripcion" => 1
+                    "nueva_inscripcion" => 1,
+                    "created_at" => date("d/m/Y", time())
                 )
             )
             }}
@@ -44,7 +45,9 @@
                                 <th>Provincia</th>
                                 <th>Municipio</th>
                                 <th>Estado</th>
-                                <th>Fecha inscripción</th>
+                                <th>Fecha inscripciÃ³n</th>
+                                <th>Borrar</th>
+
 
                             </tr>
                         </thead>
@@ -62,7 +65,7 @@
                         'Rechazado' => 'Rechazado'
                     ), $inscrito->pivot->estado) }}</td>
                                 <td>{{{DateSql::changeFromSql($inscrito->pivot->created_at)}}}</td>
-
+                                <td><a><i class="glyphicon glyphicon-trash borrarInscrito"></i></a></td>
                             </tr>
                         @endforeach
                         </tbody>
@@ -72,20 +75,47 @@
                     <script>
                         $(function(){
                             $('#listado_inscritos').dataTable();
+
+                            $('body').on("click", "#listado_inscritos select", function(e)
+                            {
+                                e.stopPropagation();
+                            });
+                            $('body').on("change", "#listado_inscritos select", function()
+                            {
+                                var oferta_id = $(this).parents("table").attr('data-id');
+                                var demandante_id = $(this).parents("tr").attr('data-id');
+                                var fieldName = $(this).attr('name');
+                                var value = $(this).val();
+                                var data = {};
+                                data[fieldName]=value;
+                                $.get("{{url("/oferta/cambio-inscritos")}}/"+oferta_id+"/"+demandante_id, data, function(){
+                                    location.reload();
+                                })
+                                        .fail(function(jqXHR, textStatus, errorThrown) { alert('Error al actualizar ' + textStatus); });
+
+                            });
+
+                            $('body').on("click", "#listado_inscritos .borrarInscrito", function(e)
+                            {
+                                e.stopPropagation();
+                                var oferta_id = $(this).parents("table").attr('data-id');
+                                var demandante_id = $(this).parents("tr").attr('data-id');
+                                var fila = $(this).parents("tr");
+                                $.get("{{url("/oferta/borrar-inscrito")}}/"+oferta_id+"/"+demandante_id, {}, function(){
+                                    fila.remove();
+                                })
+                                        .fail(function(jqXHR, textStatus, errorThrown) { alert('Error al borrar ' + textStatus); });
+                            });
+
+                            $('body').on("click", "#listado_inscritos tr", function(e)
+                            {
+                                var demandante_id = $(this).attr('data-id');
+                                window.location.href = "{{url("/demandante/ficha-demandante")}}/"+demandante_id;
+                            });
+
                         })
 
-                        $('body').on("change", "#listado_inscritos select", function()
-                        {
-                            var oferta_id = $(this).parents("table").attr('data-id');
-                            var demandante_id = $(this).parents("tr").attr('data-id');
-                            var fieldName = $(this).attr('name');
-                            var value = $(this).val();
-                            var data = {};
-                            data[fieldName]=value;
-                            $.get("{{url("/oferta/cambio-inscritos")}}/"+oferta_id+"/"+demandante_id, data)
-                                    .fail(function(jqXHR, textStatus, errorThrown) { alert('Error al actualizar' + textStatus); });
 
-                        })
                     </script>
                 </fieldset>
             </div>

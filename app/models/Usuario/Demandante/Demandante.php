@@ -184,6 +184,12 @@ class Demandante extends Eloquent {
 
 	}
 
+    public function ofertasInscritas()
+    {
+        return $this->belongsToMany("Oferta");
+    }
+
+
 
 
 }

@@ -11,7 +11,7 @@ return array(
     'BaseController' => $baseDir . '/app/controllers/BaseController.php',
     'Biblioteca\\Render\\Renderer' => $baseDir . '/app/biblioteca/Render/Renderer.php',
     'Biblioteca\\Render\\Table' => $baseDir . '/app/biblioteca/Render/Table.php',
-    'ContratosLaborales' => $baseDir . '/app/models/ContratosTrabajo/ContratosTrabajo.php',
+    'ContratosLaborales' => $baseDir . '/app/models/ContratosLaborales/ContratosLaborales.php',
     'Curso' => $baseDir . '/app/models/Curso/Curso.php',
     'Curso_CursoController' => $baseDir . '/app/controllers/curso/CursoController.php',
     'Curso_TareasChecklistInicio' => $baseDir . '/app/models/Curso/TareasChecklistInicio.php',

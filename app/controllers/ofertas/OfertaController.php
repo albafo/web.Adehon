@@ -203,6 +203,11 @@ class Ofertas_OfertaController extends \BaseController {
 		}
 			Oferta::find($ofertaId)->inscritos()->updateExistingPivot($demandanteId, $attributes);
 	}
+
+    public function getBorrarInscrito($ofertaId, $demandanteId)
+    {
+        Oferta::find($ofertaId)->inscritos()->detach($demandanteId);
+    }
 	
 	
 }

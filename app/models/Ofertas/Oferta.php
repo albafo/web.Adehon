@@ -201,6 +201,13 @@ class Oferta extends Eloquent {
     	$salarios[]='> '.number_format(Config::get('app.maxSalario'), 0, '', '.').'€';
 		return $salarios;
 	}
+
+    public function contrato()
+    {
+        return $this->belongsTo("ContratosLaborales");
+    }
+
+
 	
 	
 	
